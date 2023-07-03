@@ -18,5 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard.layouts.main');
+    return view('dashboard.main-dashboard.index');
+});
+
+Route::get('/dashboard/jenis-sampah', function () {
+    return view('dashboard.jenis-sampah.index');
 });
