@@ -7,26 +7,12 @@
         </a>
       </li>
       <li class="nav-item nav-category">Pengelolaan Sampah</li>
-      <li class="nav-item {{ Request::is('dashboard/jenis-sampah')? 'active' : '' }}">
+      <li class="nav-item {{ Request::is('dashboard/jenis-sampah*')? 'active' : '' }}">
         <a class="nav-link" href="/dashboard/jenis-sampah">
           <i class="menu-icon mdi mdi-shape-outline"></i>
           <span class="menu-title">Jenis Sampah</span>
         </a>
       </li>
-      {{-- <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-          <i class="menu-icon mdi mdi-shape-outline"></i>
-          <span class="menu-title">Jenis Sampah</span>
-          <i class="menu-arrow"></i> 
-        </a>
-        <div class="collapse" id="ui-basic">
-          <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="">Plastik</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Botol</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Kardus</a></li>
-          </ul>
-        </div>
-      </li> --}}
       <li class="nav-item nav-category">Forms and Datas</li>
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">

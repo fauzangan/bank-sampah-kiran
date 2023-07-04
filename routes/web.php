@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JenisSampahController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,4 @@ Route::get('/dashboard', function () {
     return view('dashboard.main-dashboard.index');
 });
 
-Route::get('/dashboard/jenis-sampah', function () {
-    return view('dashboard.jenis-sampah.index');
-});
+Route::resource('/dashboard/jenis-sampah', JenisSampahController::class);
