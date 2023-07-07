@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\JenisSampahController;
+use App\Http\Controllers\PenimbanganController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +26,7 @@ Route::get('/dashboard', function () {
 
 Route::post('/login', [AuthenticationController::class, 'authenticate'])->middleware('guest')->name('login');
 Route::post('/logout', [AuthenticationController::class, 'logout'])->middleware('auth');
-
 Route::resource('/dashboard/jenis-sampah', JenisSampahController::class)->middleware('auth');
+
+Route::get('/dashboard/penimbangan', [PenimbanganController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/penimbangan/penarikan', [PenimbanganController::class, 'penarikan'])->middleware('auth')->name('penimbangan.penarikan');

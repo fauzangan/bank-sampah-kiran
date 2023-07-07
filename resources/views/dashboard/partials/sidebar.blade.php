@@ -6,6 +6,12 @@
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
+      <li class="nav-item {{ Request::is('dashboard/penimbangan*')? 'active' : '' }}">
+        <a class="nav-link " href="/dashboard/penimbangan">
+          <i class="menu-icon mdi mdi-bank-transfer "></i>
+          <span class="menu-title">Penimbangan</span>
+        </a>
+      </li>
       <li class="nav-item nav-category">Pengelolaan Sampah</li>
       <li class="nav-item {{ Request::is('dashboard/jenis-sampah*')? 'active' : '' }}">
         <a class="nav-link" href="/dashboard/jenis-sampah">
@@ -33,6 +39,12 @@
         </a>
       </li>
       <li class="nav-item nav-category">Inventaris Bank Sampah</li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="menu-icon mdi mdi-archive"></i>
+          <span class="menu-title">Inventori Sampah</span>
+        </a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
           <i class="menu-icon mdi mdi-card-text-outline"></i>

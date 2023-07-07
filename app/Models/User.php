@@ -14,16 +14,17 @@ class User extends Authenticatable
 
     protected $primaryKey = 'id_user';
 
+    protected $guarded = ['id_user'];
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // protected $fillable = [
+    //     'nama',
+    //     'email',
+    //     'password',
+    // ];
 
     /**
      * The attributes that should be hidden for serialization.
