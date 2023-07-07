@@ -7,7 +7,7 @@
                 <h4 class="card-title">Jenis Sampah</h4>
             </div>
             <div class="col col-md-auto">
-              <a href="{{ route('jenis-sampah.create') }}" class="btn btn-success"><span class="mdi mdi-plus"></span> Tambah Sampah</a>
+              <a href="{{ route('jenis-sampah.create') }}" class="btn btn-success"><span class="mdi mdi-plus"></span> Tambah Jenis Sampah</a>
           </div>
         </div>
       <p class="card-description">
@@ -29,7 +29,7 @@
               <td>{{ $jenis_sampah->nama_sampah }}</td>
               <td>Rp. {{ $jenis_sampah->harga_penarikan_kg }}</td>
               <td>Rp. {{ $jenis_sampah->harga_setoran_kg }}</td>
-              <td><a class="btn btn-warning" href="#">Edit</a></td>
+              <td><a class="btn btn-warning" href="/dashboard/jenis-sampah/{{ $jenis_sampah->id_jenis_sampah }}/edit">Edit</a></td>
             </tr>
             @endforeach
           </tbody>

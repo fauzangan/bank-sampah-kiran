@@ -13,7 +13,26 @@
           <span class="menu-title">Jenis Sampah</span>
         </a>
       </li>
-      <li class="nav-item nav-category">Forms and Datas</li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#transaksis" aria-expanded="false" aria-controls="transaksis">
+          <i class="menu-icon mdi mdi-receipt"></i>
+          <span class="menu-title">Transaksi</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="transaksis">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"><a class="nav-link" href="#">Setoran Sampah</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Penarikan Sampah</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item {{ Request::is('dashboard/rekapan-data*')? 'active' : '' }}">
+        <a class="nav-link" href="#">
+          <i class="menu-icon mdi mdi-chart-bar"></i>
+          <span class="menu-title">Rekapitulasi</span>
+        </a>
+      </li>
+      <li class="nav-item nav-category">Inventaris Bank Sampah</li>
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
           <i class="menu-icon mdi mdi-card-text-outline"></i>

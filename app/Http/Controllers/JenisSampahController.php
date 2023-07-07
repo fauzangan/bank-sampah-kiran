@@ -37,7 +37,14 @@ class JenisSampahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_sampah' => ['required', 'max:255'],
+            'harga_penarikan_kg' => ['required'],
+            'harga_setoran_kg' => ['required']
+        ]);
+
+        JenisSampah::create($validatedData);
+        return redirect(route('jenis-sampah.index'));
     }
 
     /**
@@ -59,7 +66,10 @@ class JenisSampahController extends Controller
      */
     public function edit($id)
     {
-        //
+        // dd(JenisSampah::where('id_jenis_sampah', $id)->get());
+        return view('dashboard.jenis-sampah.edit', [
+            'jenis_sampah' => JenisSampah::where('id_jenis_sampah', $id)->first() 
+        ]);
     }
 
     /**
@@ -71,7 +81,14 @@ class JenisSampahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_sampah' => ['required', 'max:255'],
+            'harga_penarikan_kg' => ['required'],
+            'harga_setoran_kg' => ['required']
+        ]);
+
+        JenisSampah::where('id_jenis_sampah', $id)->update($validatedData);
+        return redirect(route('jenis-sampah.index'));
     }
 
     /**

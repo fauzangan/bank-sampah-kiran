@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use \App\Models\JenisSampah;
+use \App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +22,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        User::create([
+            'role' => 1,
+            'nama' => 'Fauzan Zaman',
+            'email' => 'test123@gmail.com',
+            'password' => bcrypt('password'),
+            'alamat' => 'test',
+            'no_telepon' => 'test'
+        ]);
 
         JenisSampah::create([
             'nama_sampah' => 'Botol Kaca',

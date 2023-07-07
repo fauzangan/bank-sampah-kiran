@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\JenisSampahController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,12 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/login', function () {
+    return view('authentication.login.index');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard.main-dashboard.index');
-});
+})->middleware('auth');
 
-Route::resource('/dashboard/jenis-sampah', JenisSampahController::class);
+Route::post('/login', [AuthenticationController::class, 'authenticate'])->middleware('guest')->name('login');
+Route::post('/logout', [AuthenticationController::class, 'logout'])->middleware('auth');
+
+Route::resource('/dashboard/jenis-sampah', JenisSampahController::class)->middleware('auth');
