@@ -11,7 +11,7 @@
                         <i class="icon-lg mdi mdi-bank-transfer-in"></i>
                     </div>
                     <p>Penarikan sampah berdasarkan jenis sampah yang tersedia yang dilakukan oleh Petugas bank sampah terhadap Nasabah</p>
-                    <a class="btn btn-success mt-3" href="{{ route('penimbangan.penarikan') }}">Lakukan Penarikan</a>
+                    <a class="btn btn-success mt-3 btn-lg" href="{{ route('penimbangan.penarikan') }}" style="color: white">Lakukan Penarikan</a>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                         <i class="icon-lg mdi mdi-bank-transfer-out"></i>
                     </div>
                     <p>Penyetoran sampah berdasarkan jenis sampah yang tersedia yang dilakukan oleh Petugas bank sampah terhadap Bank Sampah</p>
-                    <a class="btn btn-success mt-3" href="#">Lakukan Penyetoran</a>
+                    <a class="btn btn-success mt-3 btn-lg" href="#" style="color: white">Lakukan Penyetoran</a>
                 </div>
             </div>
         </div>

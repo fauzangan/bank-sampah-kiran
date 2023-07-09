@@ -11,4 +11,8 @@ class JenisSampah extends Model
 
     protected $guarded = ['id_jenis_sampah'];
     protected $primaryKey = 'id_jenis_sampah';
+
+    public function penarikan() {
+        return $this->hasMany(Penarikan::class, 'id_jenis_sampah');
+    }
 }

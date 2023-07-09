@@ -14,21 +14,23 @@
         Jenis Sampah yang tersedia pada Bank Sampah Kiran
       </p>
       <div class="table-responsive">
-        <table id="example" class="table table-hover">
+        <table id="jenis-sampah" class="table table-hover">
           <thead>
             <tr>
+              <th>No. </th>
               <th>Nama Sampah</th>
               <th>Harga Penarikan/kg</th>
               <th>Harga Setoran/kg</th>
-              <th>Action</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
             @foreach($jenis as $jenis_sampah)
             <tr>
+              <td>{{ $loop->iteration }}</td>
               <td>{{ $jenis_sampah->nama_sampah }}</td>
-              <td>Rp. {{ $jenis_sampah->harga_penarikan_kg }}</td>
-              <td>Rp. {{ $jenis_sampah->harga_setoran_kg }}</td>
+              <td>Rp. {{ number_format($jenis_sampah->harga_penarikan_kg,2,",",".") }}</td>
+              <td>Rp. {{ number_format($jenis_sampah->harga_setoran_kg,2,",",".") }}</td>
               <td><a class="btn btn-warning" href="/dashboard/jenis-sampah/{{ $jenis_sampah->id_jenis_sampah }}/edit">Edit</a></td>
             </tr>
             @endforeach

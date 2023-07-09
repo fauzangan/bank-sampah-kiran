@@ -19,7 +19,7 @@
           <span class="menu-title">Jenis Sampah</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{ Request::is('dashboard/histori*')? 'active' : '' }}">
         <a class="nav-link" data-bs-toggle="collapse" href="#transaksis" aria-expanded="false" aria-controls="transaksis">
           <i class="menu-icon mdi mdi-receipt"></i>
           <span class="menu-title">Transaksi</span>
@@ -27,8 +27,8 @@
         </a>
         <div class="collapse" id="transaksis">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"><a class="nav-link" href="#">Setoran Sampah</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Penarikan Sampah</a></li>
+            <li class="nav-item {{ Request::is('dashboard/histori/setoran')? 'active' : '' }}"><a class="nav-link" href="#">Setoran Sampah</a></li>
+            <li class="nav-item {{ Request::is('dashboard/histori/penarikan')? 'active' : '' }}"><a class="nav-link" href="{{ route('histori.penarikan') }}">Penarikan Sampah</a></li>
           </ul>
         </div>
       </li>
