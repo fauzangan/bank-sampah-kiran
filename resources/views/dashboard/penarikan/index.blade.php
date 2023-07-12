@@ -4,33 +4,28 @@
     <div class="col-sm-12">
       <div class="statistics-details d-flex align-items-center justify-content-between">
         <div>
-          <p class="statistics-title">Bounce Rate</p>
-          <h3 class="rate-percentage">32.53%</h3>
+          <p class="statistics-title">Total Transaksi Penarikan</p>
+          <h3 class="rate-percentage">{{ $total_penarikan }}</h3>
           <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
         </div>
         <div>
-          <p class="statistics-title">Page Views</p>
-          <h3 class="rate-percentage">7,682</h3>
+          <p class="statistics-title">Total Kilogram Penarikan</p>
+          <h3 class="rate-percentage">{{ $total_kg }} Kg</h3>
+          <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
+        </div>
+        <div>
+          <p class="statistics-title">Rata-rata Kilogram Penarikan</p>
+          <h3 class="rate-percentage">{{ $avg_kg }} Kg</h3>
           <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p>
         </div>
         <div>
-          <p class="statistics-title">New Sessions</p>
-          <h3 class="rate-percentage">68.8</h3>
+          <p class="statistics-title">Total Harga Penarikan</p>
+          <h3 class="rate-percentage">Rp {{ $total_harga }}</h3>
           <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
         </div>
         <div class="d-none d-md-block">
-          <p class="statistics-title">Avg. Time on Site</p>
-          <h3 class="rate-percentage">2m:35s</h3>
-          <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
-        </div>
-        <div class="d-none d-md-block">
-          <p class="statistics-title">New Sessions</p>
-          <h3 class="rate-percentage">68.8</h3>
-          <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
-        </div>
-        <div class="d-none d-md-block">
-          <p class="statistics-title">Avg. Time on Site</p>
-          <h3 class="rate-percentage">2m:35s</h3>
+          <p class="statistics-title">Rata-rata Harga Penarikan</p>
+          <h3 class="rate-percentage">Rp {{ $avg_harga }}</h3>
           <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
         </div>
       </div>
