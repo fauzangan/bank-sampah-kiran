@@ -4,7 +4,7 @@ $(document).ready(function () {
     });
     $("#select-jenis-sampah").val('').trigger('change');
     $('#select-user').select2({
-        placeholder: "Pilih Nasabah...",
+        placeholder: "Pilih Petugas...",
     });
     $("#select-user").val('').trigger('change');
 

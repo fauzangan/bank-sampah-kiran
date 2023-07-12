@@ -26,7 +26,7 @@
                         <div class="card border-primary rounded-3 mb-3">
                             <h5 class="card-header" style="background-color: #ff3333; color:white">Harga Sampah</h5>
                             <div class="card-body">
-                                <h5 style="font-size: 70px; font-weight: bold">Rp. <span id="harga">0</span>
+                                <h5 style="font-size: 70px; font-weight: bold"><span id="harga">0</span></h5>
                                     <input type="hidden" name="total_harga" id="total_harga" value="">
                             </div>
                         </div>
@@ -75,6 +75,3 @@
 @endsection
 <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
 <script src="{{ asset('js/penarikan.js') }}"></script>
-<script>
-
-</script>

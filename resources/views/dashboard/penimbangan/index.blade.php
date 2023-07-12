@@ -24,8 +24,8 @@
                     <div class="d-flex align-items-center justify-content-center mb-3">
                         <i class="icon-lg mdi mdi-bank-transfer-out"></i>
                     </div>
-                    <p>Penyetoran sampah berdasarkan jenis sampah yang tersedia yang dilakukan oleh Petugas bank sampah terhadap Bank Sampah</p>
-                    <a class="btn btn-success mt-3 btn-lg" href="#" style="color: white">Lakukan Penyetoran</a>
+                    <p>Penyetoran sampah berdasarkan jenis sampah yang tersedia yang dilakukan oleh Petugas Yayasan bank sampah terhadap bank sampah</p>
+                    <a class="btn btn-success mt-3 btn-lg" href="{{ route('penimbangan.penyetoran') }}" style="color: white">Lakukan Penyetoran</a>
                 </div>
             </div>
         </div>

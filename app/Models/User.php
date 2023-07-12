@@ -48,4 +48,8 @@ class User extends Authenticatable
     public function penarikan() {
         return $this->hasMany(Penarikan::class, 'id_user');
     }
+
+    public function setoran() {
+        return $this->hasMany(Setoran::class, 'id_user');
+    }
 }

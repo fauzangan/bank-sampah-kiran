@@ -29,8 +29,8 @@
             <tr>
               <td>{{ $loop->iteration }}</td>
               <td>{{ $jenis_sampah->nama_sampah }}</td>
-              <td>Rp. {{ number_format($jenis_sampah->harga_penarikan_kg,2,",",".") }}</td>
-              <td>Rp. {{ number_format($jenis_sampah->harga_setoran_kg,2,",",".") }}</td>
+              <td>Rp {{ number_format($jenis_sampah->harga_penarikan_kg,2,",",".") }}</td>
+              <td>Rp {{ number_format($jenis_sampah->harga_setoran_kg,2,",",".") }}</td>
               <td><a class="btn btn-warning" href="/dashboard/jenis-sampah/{{ $jenis_sampah->id_jenis_sampah }}/edit">Edit</a></td>
             </tr>
             @endforeach

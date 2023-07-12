@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id('id_sampah');
             $table->unsignedBigInteger('id_jenis_sampah');
             $table->foreign('id_jenis_sampah')->references('id_jenis_sampah')->on('jenis_sampahs')->onDelete('cascade');
-            $table->unsignedBigInteger('jumlah_kg');
-            $table->unsignedBigInteger('total_harga');
+            $table->unsignedBigInteger('jumlah_kg')->default(0);
+            $table->unsignedBigInteger('total_harga')->default(0);
             $table->timestamps();
         });
     }

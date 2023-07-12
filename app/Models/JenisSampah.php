@@ -15,4 +15,8 @@ class JenisSampah extends Model
     public function penarikan() {
         return $this->hasMany(Penarikan::class, 'id_jenis_sampah');
     }
+
+    public function setoran() {
+        return $this->hasMany(Setoran::class, 'id_jenis_sampah');
+    }
 }
