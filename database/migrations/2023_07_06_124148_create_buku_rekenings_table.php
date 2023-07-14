@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id_rekening');
             $table->unsignedBigInteger('id_nasabah');
             $table->foreign('id_nasabah')->references('id_user')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('saldo');
+            $table->unsignedBigInteger('saldo')->default(0);
             $table->string('transaksi')->nullable();
             $table->timestamps();
         });

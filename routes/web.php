@@ -7,6 +7,7 @@ use App\Http\Controllers\PenimbanganController;
 use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\InvetoriSampahController;
 use App\Http\Controllers\PenyetoranController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::middleware('guest')->group(function() {
-    Route::post('/login', [AuthenticationController::class, 'authenticate'])->name('login');
+    Route::get('/login', [AuthenticationController::class, 'index'])->name('login');
+    Route::post('/login', [AuthenticationController::class, 'authenticate'])->name('user.authenticate');
+    Route::get('/register', [UserController::class, 'createNasabah'])->name('user.nasabah.register');
+    Route::post('/register', [UserController::class, 'storeNasabah'])->name('user.nasabah.store');
 });
 
 Route::middleware('auth')->group(function() {
@@ -35,10 +40,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/dashboard/histori/penarikan', [PenarikanController::class, 'index'])->name('histori.penarikan');
     Route::get('/dashboard/histori/penyetoran', [PenyetoranController::class, 'index'])->name('histori.penyetoran');
     Route::get('/dashboard/inventori', [InvetoriSampahController::class, 'index'])->name('inventori.sampah');
-});
-
-Route::get('/login', function () {
-    return view('authentication.login.index');
+    Route::get('/dashboard/nasabah', [UserController::class, 'indexNasabah'])->name('user.nasabah.index');
 });
 
 Route::get('/dashboard', function () {

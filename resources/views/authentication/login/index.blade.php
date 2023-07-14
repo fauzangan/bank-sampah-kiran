@@ -12,7 +12,10 @@
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="../../vendors/typicons/typicons.css">
   <link rel="stylesheet" href="../../vendors/simple-line-icons/css/simple-line-icons.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  {{-- <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css"> --}}
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -34,7 +37,11 @@
               </div>
               <h4>Selamat Datang di Bank Sampah Kiran</h4>
               <h6 class="fw-light">Login untuk melanjutkan.</h6>
-              <form  class="pt-3" action="/login" method="POST">
+              <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                <strong>Email atau password salah!</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              <form  class="pt-2" action="{{ route('user.authenticate') }}" method="POST">
                 @csrf
                 <div class="form-group">
                   <input type="email" name="email" class="form-control form-control-lg" id="email" placeholder="Email...">
@@ -46,17 +53,11 @@
                 <div class="mt-3">
                   <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN IN</button>
                 </div>
-                <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
-                    </label>
-                  </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
+                <div class="my-2 d-flex justify-content-end align-items-center">
+                  <a href="#" class="auth-link text-black">Lupa password?</a>
                 </div>
                 <div class="text-center mt-4 fw-light">
-                  Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                  Tidak punya akun? <a href="{{ route('user.nasabah.register') }}" class="text-primary">Buat Akun</a>
                 </div>
               </form>
             </div>
@@ -70,9 +71,11 @@
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src="../../vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  {{-- <script src="../../vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script> --}}
   <!-- End plugin js for this page -->
   <!-- inject:js -->
   <script src="../../js/off-canvas.js"></script>

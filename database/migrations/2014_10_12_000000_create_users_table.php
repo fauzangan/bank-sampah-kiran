@@ -19,6 +19,7 @@ return new class extends Migration
             $table->String('nama');
             $table->String('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
+            $table->boolean('isActive')->default(1);
             $table->String('password');
             $table->String('alamat');
             $table->String('no_telepon')->unique();

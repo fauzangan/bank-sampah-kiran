@@ -39,7 +39,7 @@
         </a>
       </li>
       <li class="nav-item {{ Request::is('dashboard/nasabah')? 'active' : '' }}">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('user.nasabah.index') }}">
           <i class="menu-icon mdi mdi-account-multiple"></i>
           <span class="menu-title">Nasabah</span>
         </a>

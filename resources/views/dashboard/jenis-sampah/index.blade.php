@@ -31,7 +31,7 @@
               <td>{{ $jenis_sampah->nama_sampah }}</td>
               <td>Rp {{ number_format($jenis_sampah->harga_penarikan_kg,2,",",".") }}</td>
               <td>Rp {{ number_format($jenis_sampah->harga_setoran_kg,2,",",".") }}</td>
-              <td><a class="btn btn-warning" href="/dashboard/jenis-sampah/{{ $jenis_sampah->id_jenis_sampah }}/edit">Edit</a></td>
+              <td><a class="btn btn-warning" href="/dashboard/jenis-sampah/{{ $jenis_sampah->id_jenis_sampah }}/edit" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-square-edit-outline"></i>Edit</a></td>
             </tr>
             @endforeach
           </tbody>

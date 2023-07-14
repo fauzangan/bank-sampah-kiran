@@ -26,10 +26,38 @@ class DatabaseSeeder extends Seeder
         User::create([
             'role' => 1,
             'nama' => 'Fauzan Zaman',
-            'email' => 'test123@gmail.com',
+            'email' => 'test1@gmail.com',
             'password' => bcrypt('password'),
             'alamat' => 'test',
-            'no_telepon' => 'test'
+            'no_telepon' => '012931293'
+        ]);
+
+        User::create([
+            'role' => 2,
+            'nama' => 'Ilyasa',
+            'email' => 'test2@gmail.com',
+            'password' => bcrypt('password'),
+            'alamat' => 'test',
+            'no_telepon' => '129302193290'
+        ]);
+
+        User::create([
+            'role' => 3,
+            'nama' => 'Lukman',
+            'email' => 'test3@gmail.com',
+            'password' => bcrypt('password'),
+            'alamat' => 'test',
+            'no_telepon' => '01209128390128'
+        ]);
+
+        User::create([
+            'role' => 3,
+            'nama' => 'Syahrul',
+            'email' => 'test4@gmail.com',
+            'password' => bcrypt('password'),
+            'alamat' => 'test',
+            'no_telepon' => '12412312312',
+            'isActive' => 0
         ]);
 
         JenisSampah::create([
