@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BukuRekening;
 use App\Models\JenisSampah;
 use App\Models\Penarikan;
 use App\Models\Setoran;
@@ -17,7 +18,7 @@ class PenimbanganController extends Controller
     public function penarikan() {
         return view('dashboard.penimbangan.penarikan', [
             'jenis_sampahs' => JenisSampah::all(),
-            'users' => User::all()
+            'users' => User::where('role', 3)->get()
         ]);
     }
 
@@ -28,15 +29,15 @@ class PenimbanganController extends Controller
             'id_user' => ['required'],
             'id_jenis_sampah' => ['required']
         ]);
-
         Penarikan::create($validatedData);
+        PenimbanganController::updateSaldo($request->id_user, $request->total_harga);
         return redirect('/dashboard/penimbangan');
     }
 
     public function penyetoran() {
         return view('dashboard.penimbangan.penyetoran', [
             'jenis_sampahs' => JenisSampah::all(),
-            'users' => User::all()
+            'users' => User::where('role', 2)->get()
         ]);
     }
 
@@ -50,5 +51,14 @@ class PenimbanganController extends Controller
 
         Setoran::create($validatedData);
         return redirect('/dashboard/penimbangan');
+    }
+
+    public function updateSaldo($id,$saldo) {
+        $buku = BukuRekening::where('id_nasabah', $id)->first(['saldo']);
+        $buku['saldo'] += $saldo;
+
+        BukuRekening::where('id_nasabah', $id)->update([
+            'saldo' => $buku['saldo']
+        ]);
     }
 }

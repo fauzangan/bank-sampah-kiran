@@ -36,7 +36,7 @@
       <table id="penarikan" class="table table-hover">
         <thead>
           <tr>
-            <th>Waktu Transaksi</th>
+            <th>Waktu Transaksi(Tanggal/Jam)</th>
             <th>Jenis Sampah</th>
             <th>Nasabah</th>
             <th>Jumlah Kilogram</th>
@@ -46,7 +46,7 @@
         <tbody>
           @foreach($penarikans as $penarikan)
           <tr>
-            <td>{{ $penarikan->created_at }}</td>
+            <td>{{ $penarikan->created_at->toFormattedDateString() }} / {{ $penarikan->created_at->toTimeString() }}</td>
             <td>{{ $penarikan->jenisSampah->nama_sampah }}</td>
             <td>{{ $penarikan->user->nama }}</td>
             <td>{{ $penarikan->jumlah_kg }}</td>

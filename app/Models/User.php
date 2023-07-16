@@ -52,4 +52,8 @@ class User extends Authenticatable
     public function setoran() {
         return $this->hasMany(Setoran::class, 'id_user');
     }
+
+    public function bukuRekening() {
+        return $this->hasOne(BukuRekening::class, 'id_user');
+    }
 }

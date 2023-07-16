@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\BukuRekeningController;
 use App\Http\Controllers\JenisSampahController;
 use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\PenimbanganController;
@@ -41,6 +42,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/dashboard/histori/penyetoran', [PenyetoranController::class, 'index'])->name('histori.penyetoran');
     Route::get('/dashboard/inventori', [InvetoriSampahController::class, 'index'])->name('inventori.sampah');
     Route::get('/dashboard/nasabah', [UserController::class, 'indexNasabah'])->name('user.nasabah.index');
+    Route::get('/dashboard/buku-rekening', [BukuRekeningController::class, 'index'])->name('buku-rekening.index');
 });
 
 Route::get('/dashboard', function () {

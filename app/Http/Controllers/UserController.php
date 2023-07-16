@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BukuRekening;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -29,8 +30,12 @@ class UserController extends Controller
 
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['role'] = 3;
+
         $user = User::create($validatedData);
-        dd($user->id_user);
-        
+        BukuRekening::create([
+            'id_nasabah' => $user->id_user
+        ]);
+
+        return redirect(route('login'));
     }
 }
