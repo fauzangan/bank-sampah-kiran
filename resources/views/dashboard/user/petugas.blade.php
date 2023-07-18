@@ -2,9 +2,9 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Nasabah</h4>
+        <h4 class="card-title">Petugas</h4>
         <p class="card-description">
-            Daftar semua Nasabah Bank Sampah Kiran
+            Daftar semua Petugas Bank Sampah Kiran
         </p>
         <div class="table-responsive">
             <table id="nasabah" class="table table-hover">
@@ -20,35 +20,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($nasabahs as $nasabah)
+                    @foreach($petugass as $petugas)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $nasabah->nama }}</td>
-                        <td>{{ $nasabah->email }}</td>
-                        <td>{{ $nasabah->alamat }}</td>
-                        <td>{{ $nasabah->no_telepon }}</td>
+                        <td>{{ $petugas->nama }}</td>
+                        <td>{{ $petugas->email }}</td>
+                        <td>{{ $petugas->alamat }}</td>
+                        <td>{{ $petugas->no_telepon }}</td>
                         <td>
-                            @if($nasabah->isActive)
+                            @if($petugas->isActive)
                             <div class="badge badge-opacity-success">Active</div>
                             @else
                             <div class="badge badge-opacity-danger" style="background-color: #ffcccc">Suspended</div>
                             @endif
                         </td>
                         <td>
-                            @if($nasabah->isActive)
-                            <form action="/dashboard/pengguna/nasabah/{{ $nasabah->id_user }}" method="POST">
-                                @method('PUT')
-                                @csrf
-                                <input type="hidden" name="isActive" value=0>
-                                <button class="btn btn-danger" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-account-off-outline"></i>Suspend</button>
-                            </form>
+                            @if($petugas->isActive)
+                            <a class="btn btn-danger" href="#" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-account-off-outline"></i>Suspend</a>
                             @else
-                            <form action="/dashboard/pengguna/nasabah/{{ $nasabah->id_user }}" method="POST">
-                                @method('PUT')
-                                @csrf
-                                <input type="hidden" name="isActive" value=1>
-                                <button class="btn btn-success" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-account-check-outline"></i>Activate</button>
-                            </form>
+                            <a class="btn btn-success" href="#" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-account-check-outline"></i>Activate</a>
                             @endif
                         </td>
                     </tr>

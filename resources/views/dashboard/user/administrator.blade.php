@@ -20,35 +20,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($nasabahs as $nasabah)
+                    @foreach($administrators as $administrator)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $nasabah->nama }}</td>
-                        <td>{{ $nasabah->email }}</td>
-                        <td>{{ $nasabah->alamat }}</td>
-                        <td>{{ $nasabah->no_telepon }}</td>
+                        <td>{{ $administrator->nama }}</td>
+                        <td>{{ $administrator->email }}</td>
+                        <td>{{ $administrator->alamat }}</td>
+                        <td>{{ $administrator->no_telepon }}</td>
                         <td>
-                            @if($nasabah->isActive)
+                            @if($administrator->isActive)
                             <div class="badge badge-opacity-success">Active</div>
                             @else
                             <div class="badge badge-opacity-danger" style="background-color: #ffcccc">Suspended</div>
                             @endif
                         </td>
                         <td>
-                            @if($nasabah->isActive)
-                            <form action="/dashboard/pengguna/nasabah/{{ $nasabah->id_user }}" method="POST">
-                                @method('PUT')
-                                @csrf
-                                <input type="hidden" name="isActive" value=0>
-                                <button class="btn btn-danger" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-account-off-outline"></i>Suspend</button>
-                            </form>
+                            @if($administrator->isActive)
+                            <a class="btn btn-danger" href="#" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-account-off-outline"></i>Suspend</a>
                             @else
-                            <form action="/dashboard/pengguna/nasabah/{{ $nasabah->id_user }}" method="POST">
-                                @method('PUT')
-                                @csrf
-                                <input type="hidden" name="isActive" value=1>
-                                <button class="btn btn-success" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-account-check-outline"></i>Activate</button>
-                            </form>
+                            <a class="btn btn-success" href="#" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-account-check-outline"></i>Activate</a>
                             @endif
                         </td>
                     </tr>

@@ -15,4 +15,8 @@ class BukuRekening extends Model
     public function nasabah() {
         return $this->belongsTo(User::class, 'id_nasabah');
     }
+
+    public function faktur() {
+        return $this->hasMany(Faktur::class, 'id_rekening');
+    }
 }

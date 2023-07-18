@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Bank Sampah Kiran </title>
+  <title>Login </title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
@@ -37,10 +37,12 @@
               </div>
               <h4>Selamat Datang di Bank Sampah Kiran</h4>
               <h6 class="fw-light">Login untuk melanjutkan.</h6>
+              @if(session()->has('loginError'))
               <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                <strong>Email atau password salah!</strong>
+                <strong>{{ session('loginError') }}</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
+              @endif
               <form  class="pt-2" action="{{ route('user.authenticate') }}" method="POST">
                 @csrf
                 <div class="form-group">
@@ -54,7 +56,7 @@
                   <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN IN</button>
                 </div>
                 <div class="my-2 d-flex justify-content-end align-items-center">
-                  <a href="#" class="auth-link text-black">Lupa password?</a>
+                  <a href="{{ route('forget-password') }}" class="auth-link text-black">Lupa password?</a>
                 </div>
                 <div class="text-center mt-4 fw-light">
                   Tidak punya akun? <a href="{{ route('user.nasabah.register') }}" class="text-primary">Buat Akun</a>

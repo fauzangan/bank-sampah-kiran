@@ -45,24 +45,26 @@
           <span class="menu-title">Buku Rekening</span>
         </a>
       </li>
-      <li class="nav-item nav-category">Pengguna</li>
-      <li class="nav-item {{ Request::is('dashboard/nasabah')? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('user.nasabah.index') }}">
-          <i class="menu-icon mdi mdi-account-multiple"></i>
-          <span class="menu-title">Nasabah</span>
+      <li class="nav-item {{ Request::is('dashboard/rekapitulasi')? 'active' : '' }}">
+        <a class="nav-link" href="#">
+          <i class="menu-icon mdi mdi-chart-areaspline-variant"></i>
+          <span class="menu-title">Rekapitulasi</span>
         </a>
       </li>
-      <li class="nav-item {{ Request::is('dashboard/petugas')? 'active' : '' }}">
-        <a class="nav-link" href="#">
-          <i class="menu-icon mdi mdi-account-multiple"></i>
-          <span class="menu-title">Petugas</span>
+      <li class="nav-item nav-category">Pengaturan Pengguna</li>
+      <li class="nav-item {{ Request::is('dashboard/pengguna*')? 'active' : '' }}">
+        <a class="nav-link" data-bs-toggle="collapse" href="#pengguna" aria-expanded="false" aria-controls="pengguna">
+          <i class="menu-icon mdi mdi-account-group-outline"></i>
+          <span class="menu-title">Pengguna</span>
+          <i class="menu-arrow"></i>
         </a>
-      </li>
-      <li class="nav-item {{ Request::is('dashboard/administrator')? 'active' : '' }}">
-        <a class="nav-link" href="#">
-          <i class="menu-icon mdi mdi-account-multiple"></i>
-          <span class="menu-title">Administrator</span>
-        </a>
+        <div class="collapse" id="pengguna">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item {{ Request::is('dashboard/pengguna/nasabah')? 'active' : '' }}"><a class="nav-link" href="{{ route('user.nasabah.index') }}">Nasabah</a></li>
+            <li class="nav-item {{ Request::is('dashboard/pengguna/petugas')? 'active' : '' }}"><a class="nav-link" href="{{ route('user.petugas.index') }}">Petugas</a></li>
+            <li class="nav-item {{ Request::is('dashboard/pengguna/administrator')? 'active' : '' }}"><a class="nav-link" href="{{ route('user.administrator.index') }}">Administrator</a></li>
+          </ul>
+        </div>
       </li>
       <li class="nav-item nav-category">help</li>
       <li class="nav-item">

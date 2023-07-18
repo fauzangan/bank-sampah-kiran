@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BukuRekeningController;
+use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\JenisSampahController;
 use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\PenimbanganController;
@@ -28,6 +29,7 @@ Route::middleware('guest')->group(function() {
     Route::post('/login', [AuthenticationController::class, 'authenticate'])->name('user.authenticate');
     Route::get('/register', [UserController::class, 'createNasabah'])->name('user.nasabah.register');
     Route::post('/register', [UserController::class, 'storeNasabah'])->name('user.nasabah.store');
+    Route::get('/forget-password', [ForgetPasswordController::class, 'index'])->name('forget-password');
 });
 
 Route::middleware('auth')->group(function() {
@@ -41,8 +43,14 @@ Route::middleware('auth')->group(function() {
     Route::get('/dashboard/histori/penarikan', [PenarikanController::class, 'index'])->name('histori.penarikan');
     Route::get('/dashboard/histori/penyetoran', [PenyetoranController::class, 'index'])->name('histori.penyetoran');
     Route::get('/dashboard/inventori', [InvetoriSampahController::class, 'index'])->name('inventori.sampah');
-    Route::get('/dashboard/nasabah', [UserController::class, 'indexNasabah'])->name('user.nasabah.index');
+    Route::get('/dashboard/pengguna/nasabah', [UserController::class, 'indexNasabah'])->name('user.nasabah.index');
+    Route::put('/dashboard/pengguna/nasabah/{user}', [UserController::class, 'updateStatus']);
+    Route::get('/dashboard/pengguna/petugas', [UserController::class, 'indexPetugas'])->name('user.petugas.index');
+    Route::get('/dashboard/pengguna/administrator', [UserController::class, 'indexAdministrator'])->name('user.administrator.index');
     Route::get('/dashboard/buku-rekening', [BukuRekeningController::class, 'index'])->name('buku-rekening.index');
+    Route::get('/dashboard/detail-akun', [UserController::class, 'detailUser'])->name('user.detail-user');
+    Route::put('/dashboard/detail-akun', [UserController::class, 'updateUser'])->name('user.detail-user.store');
+
 });
 
 Route::get('/dashboard', function () {

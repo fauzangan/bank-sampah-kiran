@@ -15,6 +15,7 @@
                         <th>Saldo</th>
                         <th>Total Transaksi</th>
                         <th>Waktu Terakhir Transaksi</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,6 +32,7 @@
                             Belum melakukan transaksi
                             @endif
                         </td>
+                        <td><a href="#" class="btn btn-info" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-file-find-outline"></i> Detail</a></td>
                     </tr>
                     @endforeach
                 </tbody>
