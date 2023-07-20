@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BukuRekening;
+use App\Models\Faktur;
 use App\Models\JenisSampah;
 use App\Models\Penarikan;
 use App\Models\Setoran;
@@ -31,6 +32,7 @@ class PenimbanganController extends Controller
         ]);
         Penarikan::create($validatedData);
         PenimbanganController::updateSaldo($request->id_user, $request->total_harga);
+        PenimbanganController::createFaktur($request->id_user, $request->total_harga);
         return redirect('/dashboard/penimbangan');
     }
 
@@ -59,6 +61,16 @@ class PenimbanganController extends Controller
 
         BukuRekening::where('id_nasabah', $id)->update([
             'saldo' => $buku['saldo']
+        ]);
+    }
+
+    public function createFaktur($id, $saldo) {
+        $rekening = BukuRekening::where('id_nasabah', $id)->first(['id_rekening']);
+        Faktur::create([
+            'id_rekening' => $rekening->id_rekening,
+            'nominal' => $saldo,
+            'jenis_transaksi' => 1,
+            'status' => 1
         ]);
     }
 }

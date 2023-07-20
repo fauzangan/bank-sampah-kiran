@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BukuRekeningController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\JenisSampahController;
 use App\Http\Controllers\PenarikanController;
@@ -29,7 +30,9 @@ Route::middleware('guest')->group(function() {
     Route::post('/login', [AuthenticationController::class, 'authenticate'])->name('user.authenticate');
     Route::get('/register', [UserController::class, 'createNasabah'])->name('user.nasabah.register');
     Route::post('/register', [UserController::class, 'storeNasabah'])->name('user.nasabah.store');
-    Route::get('/forget-password', [ForgetPasswordController::class, 'index'])->name('forget-password');
+    Route::get('/forgot-password', [ForgetPasswordController::class, 'index'])->name('password.request');
+    Route::post('/forgot-password', [ForgetPasswordController::class, 'store'])->name('password.email');
+    Route::get('/reset-password/{token}', [ForgetPasswordController::class, 'createNewPassword'])->name('password.reset');
 });
 
 Route::middleware('auth')->group(function() {
@@ -48,9 +51,12 @@ Route::middleware('auth')->group(function() {
     Route::get('/dashboard/pengguna/petugas', [UserController::class, 'indexPetugas'])->name('user.petugas.index');
     Route::get('/dashboard/pengguna/administrator', [UserController::class, 'indexAdministrator'])->name('user.administrator.index');
     Route::get('/dashboard/buku-rekening', [BukuRekeningController::class, 'index'])->name('buku-rekening.index');
+    Route::get('/dashboard/buku-rekening/{bukurekening}', [BukuRekeningController::class, 'detailFaktur']);
     Route::get('/dashboard/detail-akun', [UserController::class, 'detailUser'])->name('user.detail-user');
     Route::put('/dashboard/detail-akun', [UserController::class, 'updateUser'])->name('user.detail-user.store');
-
+    Route::get('/dashboard/ubah-password', [ChangePasswordController::class, 'index'])->name('user.change-password');
+    Route::post('/dashboard/ubah-password', [ChangePasswordController::class, 'changePassword'])->name('user.change-password.store');
+    
 });
 
 Route::get('/dashboard', function () {

@@ -56,7 +56,7 @@
                   <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN IN</button>
                 </div>
                 <div class="my-2 d-flex justify-content-end align-items-center">
-                  <a href="{{ route('forget-password') }}" class="auth-link text-black">Lupa password?</a>
+                  <a href="{{ route('password.request') }}" class="auth-link text-black">Lupa password?</a>
                 </div>
                 <div class="text-center mt-4 fw-light">
                   Tidak punya akun? <a href="{{ route('user.nasabah.register') }}" class="text-primary">Buat Akun</a>

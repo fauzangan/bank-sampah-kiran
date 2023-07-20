@@ -7,7 +7,7 @@
             Jenis Sampah yang tersedia pada Bank Sampah Kiran
         </p>
         <div class="table-responsive">
-            <table id="jenis-sampah" class="table table-hover">
+            <table id="general-table" class="table table-hover">
                 <thead>
                     <tr>
                         <th>No. </th>
@@ -32,7 +32,7 @@
                             Belum melakukan transaksi
                             @endif
                         </td>
-                        <td><a href="#" class="btn btn-info" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-file-find-outline"></i> Detail</a></td>
+                        <td><a href="/dashboard/buku-rekening/{{ $buku_rekening->id_rekening }}" class="btn btn-info" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-file-find-outline"></i> Detail</a></td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -20,8 +20,15 @@ class BukuRekeningController extends Controller
         foreach($object as $data){
             $data['total_transaksi_user'] = Penarikan::where('id_user', $data['id_nasabah'])->count();
         }
-
         return $object;
+    }
+
+    public function detailFaktur(BukuRekening $bukurekening) {
+        return view('dashboard.buku-rekening.detail', [
+            'fakturs' => $bukurekening->faktur,
+            'nama' => $bukurekening->nasabah->nama,
+            'saldo' => $bukurekening->saldo
+        ]);
     }
 
 }
