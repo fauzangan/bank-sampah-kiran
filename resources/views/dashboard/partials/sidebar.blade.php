@@ -6,6 +6,24 @@
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
+
+    @can('nasabah')
+    <li class="nav-item nav-category">Rekening Nasabah</li>
+    <li class="nav-item">
+      <a class="nav-link " href="#">
+        <i class="mdi mdi-grid-large menu-icon"></i>
+        <span class="menu-title">Rekening Anda</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="#">
+        <i class="mdi mdi-grid-large menu-icon"></i>
+        <span class="menu-title">Histori Transaksi</span>
+      </a>
+    </li>
+    @endcan
+
+    @can('administrator')
     <li class="nav-item {{ Request::is('dashboard/penimbangan*')? 'active' : '' }}">
       <a class="nav-link " href="/dashboard/penimbangan">
         <i class="menu-icon mdi mdi-bank-transfer "></i>
@@ -47,6 +65,12 @@
         <span class="menu-title">Buku Rekening</span>
       </a>
     </li>
+    <li class="nav-item {{ Request::is('dashboard/penarikan-saldo*')? 'active' : '' }}">
+      <a class="nav-link" href="#">
+        <i class="menu-icon mdi mdi-credit-card"></i>
+        <span class="menu-title">Penarikan Saldo</span>
+      </a>
+    </li>
     <li class="nav-item {{ Request::is('dashboard/rekapitulasi')? 'active' : '' }}">
       <a class="nav-link" href="#">
         <i class="menu-icon mdi mdi-chart-areaspline-variant"></i>
@@ -71,5 +95,7 @@
         </ul>
       </div>
     </li>
+    @endcan
+    
   </ul>
 </nav>

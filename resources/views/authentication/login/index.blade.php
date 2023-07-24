@@ -37,12 +37,21 @@
               </div>
               <h4>Selamat Datang di Bank Sampah Kiran</h4>
               <h6 class="fw-light">Login untuk melanjutkan.</h6>
+              
               @if(session()->has('loginError'))
               <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
                 <strong>{{ session('loginError') }}</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
               @endif
+              
+              @if(session()->has('status'))
+              <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                <strong>{{ session('status') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              @endif
+
               <form  class="pt-2" action="{{ route('user.authenticate') }}" method="POST">
                 @csrf
                 <div class="form-group">

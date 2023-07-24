@@ -2,9 +2,9 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Nasabah</h4>
+        <h4 class="card-title">Administrator</h4>
         <p class="card-description">
-            Daftar semua Nasabah Bank Sampah Kiran
+            Daftar semua Administrator Bank Sampah Kiran
         </p>
         <div class="table-responsive">
             <table id="nasabah" class="table table-hover">
@@ -15,8 +15,6 @@
                         <th>Email</th>
                         <th>Alamat</th>
                         <th>No Telepon</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,20 +25,6 @@
                         <td>{{ $administrator->email }}</td>
                         <td>{{ $administrator->alamat }}</td>
                         <td>{{ $administrator->no_telepon }}</td>
-                        <td>
-                            @if($administrator->isActive)
-                            <div class="badge badge-opacity-success">Active</div>
-                            @else
-                            <div class="badge badge-opacity-danger" style="background-color: #ffcccc">Suspended</div>
-                            @endif
-                        </td>
-                        <td>
-                            @if($administrator->isActive)
-                            <a class="btn btn-danger" href="#" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-account-off-outline"></i>Suspend</a>
-                            @else
-                            <a class="btn btn-success" href="#" style="padding: 0.5rem 0.5rem;"><i class="mdi mdi-account-check-outline"></i>Activate</a>
-                            @endif
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>

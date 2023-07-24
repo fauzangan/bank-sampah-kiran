@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('id_rekening')->references('id_rekening')->on('buku_rekenings')->onDelete('cascade');
             $table->unsignedDecimal('nominal')->default(0);
             $table->boolean('jenis_transaksi');
-            $table->boolean('status');
+            $table->unsignedTinyInteger('status');
             $table->timestamps();
         });
     }
