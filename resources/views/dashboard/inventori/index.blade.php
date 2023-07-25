@@ -1,5 +1,19 @@
 @extends('dashboard.layouts.main')
 @section('content')
+<div class="row justify-content-md-center">
+    <div class="col-sm-4">
+      <div class="statistics-details d-flex align-items-center justify-content-between">
+        <div>
+          <p class="statistics-title">Total Berat Sampah</p>
+          <h3 class="rate-percentage">{{ $total_berat }} Kg</h3>
+        </div>
+        <div>
+          <p class="statistics-title">Total Nilai Sampah</p>
+          <h3 class="rate-percentage">Rp {{ $total_nilai }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Invetori Sampah</h4>
@@ -13,7 +27,7 @@
                         <th>No. </th>
                         <th>Nama Sampah</th>
                         <th>Total Repositori</th>
-                        <th>Detail</th>
+                        <th>Nilai Sampah</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,7 +36,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $jenis_sampah->nama_sampah }}</td>
                         <td>{{ $jenis_sampah->jumlah_kg }} Kg</td>
-                        <td><button class="btn btn-success" style="height: 30px">Detail</button></td>
+                        <td>Rp {{ number_format($jenis_sampah->nilai_sampah,2,",",".") }}</td>
                     </tr>
                     @endforeach
                 </tbody>

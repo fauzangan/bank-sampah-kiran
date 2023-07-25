@@ -6,27 +6,22 @@
         <div>
           <p class="statistics-title">Total Transaksi Penyetoran</p>
           <h3 class="rate-percentage">{{ $total_penyetoran }}</h3>
-          <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
         </div>
         <div>
           <p class="statistics-title">Total Kilogram Penyetoran</p>
           <h3 class="rate-percentage">{{ $total_kg }} Kg</h3>
-          <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
         </div>
         <div>
           <p class="statistics-title">Rata-rata Kilogram Penyetoran</p>
           <h3 class="rate-percentage">{{ $avg_kg }} Kg</h3>
-          <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p>
         </div>
         <div>
           <p class="statistics-title">Total Harga Penyetoran</p>
           <h3 class="rate-percentage">Rp {{ $total_harga }}</h3>
-          <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
         </div>
         <div class="d-none d-md-block">
           <p class="statistics-title">Rata-rata Harga Penyetoran</p>
           <h3 class="rate-percentage">Rp {{ $avg_harga }}</h3>
-          <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
         </div>
       </div>
     </div>
@@ -41,7 +36,7 @@
             <table id="penyetoran" class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Waktu Transaksi</th>
+                        <th>Waktu Transaksi(Tanggal/Jam)</th>
                         <th>Jenis Sampah</th>
                         <th>Petugas Yayasan</th>
                         <th>Jumlah Kilogram</th>
@@ -51,7 +46,7 @@
                 <tbody>
                     @foreach($penyetorans as $penyetoran)
                     <tr>
-                        <td>{{ $penyetoran->created_at }}</td>
+                        <td>{{ $penyetoran->created_at->toFormattedDateString() }} / {{ $penyetoran->created_at->toTimeString() }}</td>
                         <td>{{ $penyetoran->jenisSampah->nama_sampah }}</td>
                         <td>{{ $penyetoran->user->nama }}</td>
                         <td>{{ $penyetoran->jumlah_kg }}</td>

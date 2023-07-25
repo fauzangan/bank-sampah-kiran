@@ -12,5 +12,11 @@ class BukuRekening extends Model
     protected $guarded = ['id_rekening'];
     protected $primaryKey = 'id_rekening';
 
-    
+    public function nasabah() {
+        return $this->belongsTo(User::class, 'id_nasabah');
+    }
+
+    public function faktur() {
+        return $this->hasMany(Faktur::class, 'id_rekening');
+    }
 }
