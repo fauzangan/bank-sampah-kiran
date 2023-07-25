@@ -45,4 +45,7 @@ Route::get('/dashboard', function () {
     return view('dashboard.main-dashboard.index');
 })->middleware('auth');
 
+Route::get('/', function () {
+    return view('landing');
+});
 
