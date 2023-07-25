@@ -211,3 +211,34 @@ $('#fakturs').DataTable({
   order: [[0, 'desc']]
 });
 
+$('#fakturs-success').DataTable({
+  dom: "<'row'<'col-sm-12 col-md-2'l><'col-sm-12 col-md-4'B><'col-sm-12 col-md-6'f>>" +
+    "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+  buttons: [
+    {
+      extend: 'excel',
+      title: 'Daftar Faktur',
+      text: '<i class="mdi mdi-file-excel"></i> Excel',
+      className: 'btn btn-success rounded-pill',
+    },
+    {
+      extend: 'pdf',
+      title: 'Daftar Faktur',
+      text: '<i class="mdi mdi-file-pdf"></i> PDF',
+      className: 'btn btn-danger rounded-pill',
+    },
+  ],
+  language: {
+    "search": "Cari:",
+    "lengthMenu": "Menampilkan _MENU_ data",
+    "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+    "paginate": {
+      "first": "Pertama",
+      "last": "Terakhir",
+      "next": "Selanjutnya",
+      "previous": "Sebelumnya"
+    },
+  },
+  order: [[0, 'desc']]
+});
+

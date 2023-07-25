@@ -9,6 +9,7 @@ use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\PenimbanganController;
 use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\InvetoriSampahController;
+use App\Http\Controllers\NasabahMenuController;
 use App\Http\Controllers\PenyetoranController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -54,12 +55,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/pengguna/administrator', [UserController::class, 'indexAdministrator'])->name('user.administrator.index');
         Route::get('/dashboard/buku-rekening', [BukuRekeningController::class, 'index'])->name('buku-rekening.index');
         Route::get('/dashboard/buku-rekening/{bukurekening}', [BukuRekeningController::class, 'detailFaktur']);
+        Route::get('/dashboard/penarikan-saldo', [BukuRekeningController::class, 'indexFaktur'])->name('buku-rekening.faktur.index');
+        Route::put('/dashboard/penarikan-saldo/{faktur}/status', [BukuRekeningController::class, 'updateStatusFaktur']);
     });
 
     Route::middleware('petugas')->group(function () {
     });
 
     Route::middleware('nasabah')->group(function () {
+        Route::get('/dashboard/nasabah/buku-rekening', [NasabahMenuController::class, 'indexRekening'])->name('nasabah.buku-rekening');
+        Route::get('/dashboard/nasabah/penimbangan', [NasabahMenuController::class, 'indexPenimbangan'])->name('nasabah.penimbangan.index');
+        Route::post('/dashboard/nasabah/buku-rekening', [NasabahMenuController::class, 'requestPenarikanSaldo'])->name('nasabah.buku-rekening.penarikan');
     });
 
     Route::post('/logout', [AuthenticationController::class, 'logout']);

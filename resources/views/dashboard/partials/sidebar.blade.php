@@ -9,16 +9,16 @@
 
     @can('nasabah')
     <li class="nav-item nav-category">Rekening Nasabah</li>
-    <li class="nav-item">
-      <a class="nav-link " href="#">
-        <i class="mdi mdi-grid-large menu-icon"></i>
-        <span class="menu-title">Rekening Anda</span>
+    <li class="nav-item {{ Request::is('dashboard/nasabah/buku-rekening')? 'active' : '' }}">
+      <a class="nav-link " href="{{ route('nasabah.buku-rekening') }}">
+        <i class="mdi mdi-book-open-page-variant menu-icon"></i>
+        <span class="menu-title">Buku Rekening</span>
       </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link " href="#">
-        <i class="mdi mdi-grid-large menu-icon"></i>
-        <span class="menu-title">Histori Transaksi</span>
+    <li class="nav-item {{ Request::is('dashboard/nasabah/penimbangan')? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('nasabah.penimbangan.index') }}">
+        <i class="mdi mdi-file-document-box-check-outline menu-icon"></i>
+        <span class="menu-title">Histori Penimbangan</span>
       </a>
     </li>
     @endcan
@@ -59,14 +59,14 @@
       </a>
     </li>
     <li class="nav-item nav-category">Inventaris Bank Sampah</li>
-    <li class="nav-item {{ Request::is('dashboard/buku-rekening*')? 'active' : '' }}">
+    <li class="nav-item {{ Request::is('dashboard/buku-rekening')? 'active' : '' }}">
       <a class="nav-link" href="{{ route('buku-rekening.index') }}">
         <i class="menu-icon mdi mdi-book-open-page-variant"></i>
         <span class="menu-title">Buku Rekening</span>
       </a>
     </li>
     <li class="nav-item {{ Request::is('dashboard/penarikan-saldo*')? 'active' : '' }}">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{ route('buku-rekening.faktur.index') }}">
         <i class="menu-icon mdi mdi-credit-card"></i>
         <span class="menu-title">Penarikan Saldo</span>
       </a>

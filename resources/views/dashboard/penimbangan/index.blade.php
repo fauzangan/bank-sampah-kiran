@@ -39,12 +39,12 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Buat Jadwal Penimbangan</h4>
-                <div class="row">
+                <div class="row form-group">
+                    <label for="">Pilih Tanggal: </label>
                     <div class="col">
-                        <label for="">Pilih Tanggal :</label>
                         <input type="datetime-local">
                     </div>
-                    <div class="col-md-auto">
+                    <div class="col">
                         <button class="btn btn-info">Buat Jadwal</button>
                     </div>
                 </div>
