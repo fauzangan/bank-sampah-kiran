@@ -94,7 +94,7 @@
   <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
   <script src="{{ asset('js/template.js') }}"></script>
   <script src="{{ asset('js/settings.js') }}"></script>
-  {{-- <script src="{{ asset('js/todolist.js') }}"></script> --}}
+  <script src="{{ asset('js/todolist.js') }}"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
   {{-- <script src="{{ asset('js/jquery.cookie.js') }}" type="text/javascript"></script> --}}

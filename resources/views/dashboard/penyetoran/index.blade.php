@@ -28,9 +28,9 @@
   </div>
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Histori Penyetoran</h4>
+        <h4 class="card-title">Riwayat Penyetoran</h4>
         <p class="card-description">
-            Histori penyetoran pada Bank Sampah
+            Riwayat penyetoran pada Bank Sampah
         </p>
         <div class="table-responsive">
             <table id="penyetoran" class="table table-hover">

@@ -28,9 +28,9 @@
 </div>
 <div class="card">
   <div class="card-body">
-    <h4 class="card-title">Histori Penarikan</h4>
+    <h4 class="card-title">Riwayat Penarikan</h4>
     <p class="card-description">
-      Histori penarikan pada Nasabah
+      Riwayat penarikan pada Nasabah
     </p>
     <div class="table-responsive">
       <table id="penarikan" class="table table-hover">

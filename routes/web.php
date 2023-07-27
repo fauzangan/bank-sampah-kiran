@@ -9,6 +9,7 @@ use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\PenimbanganController;
 use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\InvetoriSampahController;
+use App\Http\Controllers\MainDashboardController;
 use App\Http\Controllers\NasabahMenuController;
 use App\Http\Controllers\PenyetoranController;
 use App\Http\Controllers\UserController;
@@ -38,6 +39,8 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/dashboard', [MainDashboardController::class, 'mainDashboard']);
 
     Route::middleware('administrator')->group(function () {
         Route::resource('/dashboard/jenis-sampah', JenisSampahController::class);
@@ -74,7 +77,3 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/ubah-password', [ChangePasswordController::class, 'index'])->name('user.change-password');
     Route::post('/dashboard/ubah-password', [ChangePasswordController::class, 'changePassword'])->name('user.change-password.store');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard.main-dashboard.index');
-})->middleware('auth');

@@ -7,7 +7,7 @@
             Request Penarikan Saldo Nasabah
         </p>
         <div class="table-responsive">
-            <table id="fakturs" class="table table-hover">
+            <table id="request-fakturs" class="table table-hover">
                 <thead>
                     <tr>
                         <th>Tanggal Request Dibuat</th>
@@ -24,7 +24,7 @@
                         <td>{{ $transaksi->created_at }}</td>
                         <td>{{ $transaksi->bukuRekening->nasabah->nama }}</td>
                         @if($transaksi->jenis_transaksi != 1)
-                        <td><strong>-</strong> Rp {{ number_format($transaksi->nominal,2,",",".") }}</td>
+                        <td>Rp {{ number_format($transaksi->nominal,2,",",".") }}</td>
                         <td class="text-danger">Penarikan Saldo</td>
                         @else
                         <td> Rp {{ number_format($transaksi->nominal,2,",",".") }}</td>
@@ -64,7 +64,7 @@
             Daftar Semua Faktur
         </p>
         <div class="table-responsive">
-            <table id="fakturs-success" class="table table-hover">
+            <table id="fakturs" class="table table-hover">
                 <thead>
                     <tr>
                         <th>Tanggal Dibuat</th>
@@ -81,7 +81,7 @@
                         <td>{{ $transaksi->created_at }}</td>
                         <td>{{ $transaksi->bukuRekening->nasabah->nama }}</td>
                         @if($transaksi->jenis_transaksi != 1)
-                        <td><strong>-</strong> Rp {{ number_format($transaksi->nominal,2,",",".") }}</td>
+                        <td>Rp {{ number_format($transaksi->nominal,2,",",".") }}</td>
                         <td class="text-danger">Penarikan Saldo</td>
                         @else
                         <td> Rp {{ number_format($transaksi->nominal,2,",",".") }}</td>

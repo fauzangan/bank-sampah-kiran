@@ -18,7 +18,7 @@
     <li class="nav-item {{ Request::is('dashboard/nasabah/penimbangan')? 'active' : '' }}">
       <a class="nav-link" href="{{ route('nasabah.penimbangan.index') }}">
         <i class="mdi mdi-file-document-box-check-outline menu-icon"></i>
-        <span class="menu-title">Histori Penimbangan</span>
+        <span class="menu-title">Riwayat Penimbangan</span>
       </a>
     </li>
     @endcan
@@ -39,7 +39,7 @@
     </li>
     <li class="nav-item {{ Request::is('dashboard/histori*')? 'active' : '' }}">
       <a class="nav-link" data-bs-toggle="collapse" href="#transaksis" aria-expanded="false" aria-controls="transaksis">
-        <i class="menu-icon mdi mdi-receipt"></i>
+        <i class="menu-icon mdi mdi-file-document-box-check-outline"></i>
         <span class="menu-title">Transaksi</span>
         <i class="menu-arrow"></i>
       </a>
