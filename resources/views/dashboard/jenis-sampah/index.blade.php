@@ -20,8 +20,8 @@
           <tr>
             <th>No. </th>
             <th>Nama Sampah</th>
-            <th>Harga Penarikan/kg</th>
-            <th>Harga Setoran/kg</th>
+            <th>Harga Pembelian/kg</th>
+            <th>Harga Penjualan/kg</th>
             <th>Aksi</th>
           </tr>
         </thead>

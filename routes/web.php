@@ -7,7 +7,6 @@ use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\JenisSampahController;
 use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\PenimbanganController;
-use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\InvetoriSampahController;
 use App\Http\Controllers\MainDashboardController;
 use App\Http\Controllers\NasabahMenuController;
@@ -26,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function() {
+    return redirect()->route('login');
+});
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthenticationController::class, 'index'])->name('login');

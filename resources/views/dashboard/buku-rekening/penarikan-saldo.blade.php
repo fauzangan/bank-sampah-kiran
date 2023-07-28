@@ -89,7 +89,7 @@
                         @endif
                         <td>
                             @if($transaksi->status == 1)
-                            <div class="badge badge-opacity-success">Diterima</div>
+                            <div class="badge badge-opacity-success">Selesai</div>
                             @else
                             <div class="badge badge-opacity-danger" style="background-color: #ffcccc">Ditolak</div>
                             @endif
