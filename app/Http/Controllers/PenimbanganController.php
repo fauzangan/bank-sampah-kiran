@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BukuRekening;
-use App\Models\Faktur;
-use App\Models\JenisSampah;
-use App\Models\Penarikan;
-use App\Models\Setoran;
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Faktur;
+use App\Models\Setoran;
+use App\Models\Penarikan;
+use App\Models\JenisSampah;
+use App\Models\BukuRekening;
 use Illuminate\Http\Request;
 
 class PenimbanganController extends Controller
 {
     public function index() {
-        return view('dashboard.penimbangan.index');
+        return view('dashboard.penimbangan.index',[
+            'minDateRange' => Carbon::now()->format('m-d-Y')
+        ]);
     }
 
     public function penarikan() {
@@ -72,5 +75,11 @@ class PenimbanganController extends Controller
             'jenis_transaksi' => 1,
             'status' => 1
         ]);
+    }
+
+    public function showUser($id) {
+        $user = User::where('id_user', $id)->first();
+
+        return response()->json($user);
     }
 }

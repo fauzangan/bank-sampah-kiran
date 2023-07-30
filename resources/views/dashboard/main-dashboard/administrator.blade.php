@@ -16,16 +16,12 @@
         <h3 class="rate-percentage">{{ $jumlahAdministrator }}</h3>
       </div>
       <div class="d-none d-md-block">
-        <p class="statistics-title">Transaksi Penimbangan</p>
+        <p class="statistics-title">Total Transaksi Penimbangan</p>
         <h3 class="rate-percentage">{{ $jumlahPenimbangan }}</h3>
       </div>
       <div class="d-none d-md-block">
-        <p class="statistics-title">New Sessions</p>
-        <h3 class="rate-percentage">68.8</h3>
-      </div>
-      <div class="d-none d-md-block">
-        <p class="statistics-title">Avg. Time on Site</p>
-        <h3 class="rate-percentage">2m:35s</h3>
+        <p class="statistics-title">Total Berat Akumulasi</p>
+        <h3 class="rate-percentage">{{ $totalSampah }} Kg</h3>
       </div>
     </div>
   </div>
@@ -97,11 +93,6 @@
 {{ $chartPenimbangan->script() }}
 {{ $chartPenjualan->script() }}
 
-@endsection
 <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
-<script src="{{ asset('js/jquery.cookie.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/dashboard.js') }}"></script>
-<script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
-<script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
 <script src="{{ asset('vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
-<script src="{{ asset('vendors/progressbar.js/progressbar.min.js') }}"></script>
+@endsection

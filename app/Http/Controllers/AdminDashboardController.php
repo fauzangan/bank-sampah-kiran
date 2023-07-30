@@ -13,27 +13,28 @@ use App\Charts\PenimbanganJenisSampah;
 use App\Charts\PenimbanganJenisSampahChart;
 use App\Models\BukuRekening;
 
-class MainDashboardController extends Controller
+class AdminDashboardController extends Controller
 {
     public $keuntungan;
     public $saldo;
 
-    public function mainDashboard(PenimbanganJenisSampahChart $chartPenimbangan, PenjualanSampahChart $chartPenjualan)
+    public function adminDashboard(PenimbanganJenisSampahChart $chartPenimbangan, PenjualanSampahChart $chartPenjualan)
     {
         $data = JenisSampah::all();
         $jumlahKg = JenisSampah::withSum('penarikan as jumlah_kg', 'jumlah_kg')->get();
-        $pembelian = MainDashboardController::sumPenarikanByMonth();
-        $penjualan = MainDashboardController::sumPenyetoranByMonth();
+        $pembelian = AdminDashboardController::sumPenarikanByMonth();
+        $penjualan = AdminDashboardController::sumPenyetoranByMonth();
 
-        return view('dashboard.main-dashboard.index', [
+        return view('dashboard.main-dashboard.administrator', [
             'chartPenimbangan' => $chartPenimbangan->build($data, $jumlahKg),
             'chartPenjualan' => $chartPenjualan->build($pembelian, $penjualan),
             'jumlahNasabah' => User::where('role', 3)->count(),
             'jumlahPetugas' => User::where('role', 2)->count(),
             'jumlahAdministrator' => User::where('role', 1)->count(),
             'jumlahPenimbangan' => Penarikan::count() + Setoran::count(),
-            'reportKeuntungan' => MainDashboardController::sumReportKeuntungan(),
-            'reportSaldo' => MainDashboardController::sumReportSaldo()
+            'totalSampah' => Penarikan::sum('jumlah_kg'),
+            'reportKeuntungan' => AdminDashboardController::sumReportKeuntungan(),
+            'reportSaldo' => AdminDashboardController::sumReportSaldo()
         ]);
     }
 
@@ -93,7 +94,7 @@ class MainDashboardController extends Controller
 
     public function sumReportSaldo()
     {
-        $keuntungan = MainDashboardController::sumReportKeuntungan();
+        $keuntungan = AdminDashboardController::sumReportKeuntungan();
         $saldo = BukuRekening::sum('saldo');
 
         return $saldo + $keuntungan;

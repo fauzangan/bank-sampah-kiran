@@ -39,28 +39,33 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Buat Jadwal Penimbangan</h4>
-                <div class="row form-group">
-                    <label for="">Pilih Tanggal: </label>
-                    <div class="col">
-                        <input type="datetime-local">
+                <form action="">
+                    <div class="row form-group">
+                        <div class="col-md-auto">
+                            <label for="">Pilih Tanggal: </label>
+                            <input type="date" min="{{ $minDateRange }}">
+                        </div>
+                        <div class="col-md-auto">
+                            <label for="">Jam:</label>
+                            <input type="time" >
+                        </div>
+                        <div class="col-md-auto">
+                            <button class="btn btn-success" type="submit">Buat Jadwal</button>
+                        </div>
                     </div>
-                    <div class="col">
-                        <button class="btn btn-info">Buat Jadwal</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Histori Penarikan</h4>
-                <p class="card-description">
-                  Histori penarikan pada Nasabah
-                </p>
+                <h4 class="card-title">Riyaway Penimbangan</h4>
             </div>
         </div>
     </div>
 </div>
-@endsection
+
+
 <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
+@endsection

@@ -17,11 +17,33 @@ $(document).ready(function () {
         $('#total_harga').val(totalHarga);
         $('#harga').text(rupiah(totalHarga));
     });
+
+    $("#select-user").change(function() {
+        let control = $(this);
+
+        let id = control.find(':selected').attr('value');
+        console.log(id);
+        $('#show-user').data("id", id);
+    });
+
+    $('body').on('click', '#show-user', function () {
+        let id = $(this).data('id');
+        if(id != 1){
+         $.get("/dashboard/penimbangan/penarikan/"+ id, function (data) {
+            $('#userShowModal').modal('show');
+            $('#nama').text(data.nama);
+            $('#email').text(data.email);
+            $('#no_telepon').text(data.no_telepon);
+            $('#alamat').text(data.alamat);
+        });
+        }
+     });
+
 });
 
-const rupiah = (number)=>{
+const rupiah = (number) => {
     return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR"
+        style: "currency",
+        currency: "IDR"
     }).format(number);
-  }
+}

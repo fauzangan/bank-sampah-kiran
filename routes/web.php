@@ -8,7 +8,7 @@ use App\Http\Controllers\JenisSampahController;
 use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\PenimbanganController;
 use App\Http\Controllers\InvetoriSampahController;
-use App\Http\Controllers\MainDashboardController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\NasabahMenuController;
 use App\Http\Controllers\PenyetoranController;
 use App\Http\Controllers\UserController;
@@ -42,15 +42,17 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/dashboard', [MainDashboardController::class, 'mainDashboard']);
-
+    
     Route::middleware('administrator')->group(function () {
+        Route::get('/dashboard/admin', [AdminDashboardController::class, 'adminDashboard']);
         Route::resource('/dashboard/jenis-sampah', JenisSampahController::class);
         Route::get('/dashboard/penimbangan', [PenimbanganController::class, 'index']);
         Route::get('/dashboard/penimbangan/penarikan', [PenimbanganController::class, 'penarikan'])->name('penimbangan.penarikan');
         Route::get('/dashboard/penimbangan/penyetoran', [PenimbanganController::class, 'penyetoran'])->name('penimbangan.penyetoran');
         Route::post('/dashboard/penimbangan/penarikan', [PenimbanganController::class, 'storePenarikan'])->name('penimbangan.penarikan.store');
         Route::post('/dashboard/penimbangan/penyetoran', [PenimbanganController::class, 'storePenyetoran'])->name('penimbangan.penyetoran.store');
+        Route::get('/dashboard/penimbangan/penarikan/{id}', [PenimbanganController::class, 'showUser']);
+        Route::get('/dashboard/penimbangan/penyetoran/{id}', [PenimbanganController::class, 'showUser']);
         Route::get('/dashboard/histori/penarikan', [PenarikanController::class, 'index'])->name('histori.penarikan');
         Route::get('/dashboard/histori/penyetoran', [PenyetoranController::class, 'index'])->name('histori.penyetoran');
         Route::get('/dashboard/inventori', [InvetoriSampahController::class, 'index'])->name('inventori.sampah');

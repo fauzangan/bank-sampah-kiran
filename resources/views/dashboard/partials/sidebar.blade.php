@@ -1,13 +1,13 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
-    <li class="nav-item {{ Request::is('dashboard')? 'active' : '' }}">
-      <a class="nav-link " href="/dashboard">
+
+    @can('nasabah')
+    <li class="nav-item {{ Request::is('dashboard/nasabah')? 'active' : '' }}">
+      <a class="nav-link " href="/dashboard/nasabah">
         <i class="mdi mdi-grid-large menu-icon"></i>
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
-
-    @can('nasabah')
     <li class="nav-item nav-category">Rekening Nasabah</li>
     <li class="nav-item {{ Request::is('dashboard/nasabah/buku-rekening')? 'active' : '' }}">
       <a class="nav-link " href="{{ route('nasabah.buku-rekening') }}">
@@ -24,6 +24,12 @@
     @endcan
 
     @can('administrator')
+    <li class="nav-item {{ Request::is('dashboard/admin')? 'active' : '' }}">
+      <a class="nav-link " href="/dashboard/admin">
+        <i class="mdi mdi-grid-large menu-icon"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
     <li class="nav-item {{ Request::is('dashboard/penimbangan*')? 'active' : '' }}">
       <a class="nav-link " href="/dashboard/penimbangan">
         <i class="menu-icon mdi mdi-bank-transfer "></i>

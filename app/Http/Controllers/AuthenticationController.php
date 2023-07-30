@@ -19,7 +19,13 @@ class AuthenticationController extends Controller
 
         if (Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            if( auth()->user()->role == 1){
+                return redirect()->intended('/dashboard/admin');
+            }elseif( auth()->user()->role == 2 ){
+                return redirect()->intended('/dashboard/petugas');
+            }else{
+                return redirect()->intended('/dashboard/nasabah');
+            }
         }
         return back()->with('loginError','Email atau Password Salah!');
     }
