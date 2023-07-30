@@ -38,15 +38,29 @@
         <div class="card-body">
           <div class="d-sm-flex justify-content-between align-items-start">
             <div>
-              <h4 class="card-title card-title-dash">Tinjauan Pasar</h4>
-              <p class="card-subtitle card-subtitle-dash">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+              <h4 class="card-title card-title-dash">Penjualan Sampah</h4>
+              <p class="card-subtitle card-subtitle-dash">Laporan Penjualan Sampah pada tahun ini</p>
             </div>
           </div>
+          <div class="row align-items-center">
+            <div class="col-md-auto">
+              <h4>Saldo: </h4>
+            </div>
+            <div class="col-4">
+              <h2 class="fw-bold">Rp {{ number_format($reportSaldo,2,",",".") }}</h2>
+            </div>
+            <div class="col-md-auto">
+              <h4>Keuntungan: </h4>
+            </div>
+            <div class="col-4">
+              <h2 class="fw-bold text-success">+Rp {{ number_format($reportKeuntungan,2,",",".") }}</h2>
+            </div>
           <div class="d-sm-flex align-items-center justify-content-between">
             <div class="d-sm-flex align-items-center mt-1 justify-content-between">
-              <h2 class="me-2 fw-bold">Rp 550.000,00</h2>
-              <h4 class="me-2">IDR</h4>
-              <h4 class="text-success">(+1.37%)</h4>
+              </div>
+              {{-- <h4 class="me-2">Saldo: </h4> --}}
+              {{-- <h2 class="me-2 fw-bold text-success">Rp {{ number_format($reportPenjualan,2,",",".") }}</h2> --}}
+              {{-- <h4 class="text-success">(+1.37%)</h4> --}}
             </div>
           </div>
           <div class="chartjs-bar-wrapper mt-3">

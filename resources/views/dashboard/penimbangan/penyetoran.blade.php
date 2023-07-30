@@ -41,8 +41,7 @@
                         <select id="select-jenis-sampah" class="form-select form-select-sm"
                             placeholder="Pilih Jenis Sampah..." name="id_jenis_sampah">
                             @foreach ($jenis_sampahs as $jenis_sampah)
-                            <option value="{{ $jenis_sampah->id_jenis_sampah }}" data-harga={{ $jenis_sampah->
-                                harga_penarikan_kg }}>{{ $jenis_sampah->nama_sampah }}
+                            <option value="{{ $jenis_sampah->id_jenis_sampah }}" data-harga={{ $jenis_sampah->harga_setoran_kg }}>{{ $jenis_sampah->nama_sampah }}
                             </option>
                             @endforeach
                         </select>

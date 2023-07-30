@@ -64,26 +64,26 @@ class DatabaseSeeder extends Seeder
 
         JenisSampah::create([
             'nama_sampah' => 'Kardus',
-            'harga_penarikan_kg' => 2750,
-            'harga_setoran_kg' => 2000,
+            'harga_penarikan_kg' => 1500,
+            'harga_setoran_kg' => 3000,
         ]);
 
         JenisSampah::create([
             'nama_sampah' => 'Kertas',
-            'harga_penarikan_kg' => 3200,
-            'harga_setoran_kg' => 2400,
+            'harga_penarikan_kg' => 2100,
+            'harga_setoran_kg' => 2750,
         ]);
 
         JenisSampah::create([
             'nama_sampah' => 'Botol Kaca',
-            'harga_penarikan_kg' => 3500,
-            'harga_setoran_kg' => 2300,
+            'harga_penarikan_kg' => 2950,
+            'harga_setoran_kg' => 4000,
         ]);
 
         JenisSampah::create([
             'nama_sampah' => 'Botol Plastik',
-            'harga_penarikan_kg' => 2500,
-            'harga_setoran_kg' => 1000,
+            'harga_penarikan_kg' => 1450,
+            'harga_setoran_kg' => 2850,
         ]);
 
         BukuRekening::create([

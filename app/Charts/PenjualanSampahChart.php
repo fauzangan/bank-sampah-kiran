@@ -13,12 +13,12 @@ class PenjualanSampahChart
         $this->chart = $chart;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\BarChart
+    public function build($pembelian, $penjualan): \ArielMejiaDev\LarapexCharts\BarChart
     {
         return $this->chart->barChart()
-            ->setHeight(200)
-            ->addData('Pembelian', [6, 9, 3, 4, 10, 8])
-            ->addData('Penjualan', [7, 3, 8, 2, 6, 4])
-            ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June']);
+            ->setHeight(300)
+            ->addData('Pembelian', $pembelian)
+            ->addData('Penjualan', $penjualan)
+            ->setXAxis(['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']);
     }
 }
