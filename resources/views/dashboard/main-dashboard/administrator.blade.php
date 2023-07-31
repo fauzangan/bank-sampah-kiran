@@ -82,6 +82,20 @@
             </div>
           </div>
         </div>
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card card-rounded">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="card-title card-title-dash">Transaksi Rekening Nasabah</h4>
+                  </div>
+                  {!! $chartTransaksiNasabah->container() !!}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -89,9 +103,11 @@
 
 <script src="{{ $chartPenimbangan->cdn() }}"></script>
 <script src="{{ $chartPenjualan->cdn() }}"></script>
+<script src="{{ $chartTransaksiNasabah->cdn() }}"></script>
 
 {{ $chartPenimbangan->script() }}
 {{ $chartPenjualan->script() }}
+{{ $chartTransaksiNasabah->script() }}
 
 <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
 <script src="{{ asset('vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>

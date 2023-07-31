@@ -9,9 +9,14 @@ use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\PenimbanganController;
 use App\Http\Controllers\InvetoriSampahController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\JadwalPenarikanController;
+use App\Http\Controllers\JadwalPenimbanganController;
+use App\Http\Controllers\NasabahDashboardController;
 use App\Http\Controllers\NasabahMenuController;
 use App\Http\Controllers\PenyetoranController;
+use App\Http\Controllers\PetugasDashboardController;
 use App\Http\Controllers\UserController;
+use App\Models\JadwalPenimbangan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,9 +49,13 @@ Route::middleware('auth')->group(function () {
 
     
     Route::middleware('administrator')->group(function () {
-        Route::get('/dashboard/admin', [AdminDashboardController::class, 'adminDashboard']);
+        Route::get('/dashboard/admin', [AdminDashboardController::class, 'adminDashboard'])->name('dashboard.admin');
         Route::resource('/dashboard/jenis-sampah', JenisSampahController::class);
-        Route::get('/dashboard/penimbangan', [PenimbanganController::class, 'index']);
+        Route::get('/dashboard/penimbangan', [PenimbanganController::class, 'index'])->name('penimbangan');
+        Route::post('/dashboard/jadwal-penimbangan', [JadwalPenimbanganController::class, 'storeJadwalPenimbangan'])->name('jadwal-penimbangan.store');
+        Route::put('/dashboard/jadwal-penimbangan/{id}', [JadwalPenimbanganController::class, 'updateStatusJadwal'])->name('jadwal-penimbangan.status.update');
+        Route::get('/dashboard/jadwal-penimbangan/{id}/edit', [JadwalPenimbanganController::class, 'editJadwalPenimbangan'])->name('jadwal-penimbangan.edit');
+        Route::put('/dashboard/jadwal-penimbangan', [JadwalPenimbanganController::class, 'updateJadwalPenimbangan'])->name('jadwal-penimbangan.update');
         Route::get('/dashboard/penimbangan/penarikan', [PenimbanganController::class, 'penarikan'])->name('penimbangan.penarikan');
         Route::get('/dashboard/penimbangan/penyetoran', [PenimbanganController::class, 'penyetoran'])->name('penimbangan.penyetoran');
         Route::post('/dashboard/penimbangan/penarikan', [PenimbanganController::class, 'storePenarikan'])->name('penimbangan.penarikan.store');
@@ -67,9 +76,11 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware('petugas')->group(function () {
+        Route::get('/dashboard/petugas', [PetugasDashboardController::class, 'petugasDashboard'])->name('dashboard.petugas');
     });
 
     Route::middleware('nasabah')->group(function () {
+        Route::get('/dashboard/nasabah', [NasabahDashboardController::class, 'nasabahDashboard'])->name('dashboard.nasabah');
         Route::get('/dashboard/nasabah/buku-rekening', [NasabahMenuController::class, 'indexRekening'])->name('nasabah.buku-rekening');
         Route::get('/dashboard/nasabah/penimbangan', [NasabahMenuController::class, 'indexPenimbangan'])->name('nasabah.penimbangan.index');
         Route::post('/dashboard/nasabah/buku-rekening', [NasabahMenuController::class, 'requestPenarikanSaldo'])->name('nasabah.buku-rekening.penarikan');

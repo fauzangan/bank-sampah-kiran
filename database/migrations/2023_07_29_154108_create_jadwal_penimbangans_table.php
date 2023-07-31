@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('jadwal_penimbangans', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_jadwal_penimbangan');
+            $table->date('tanggal');
+            $table->time('jam');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

@@ -228,3 +228,10 @@ $('#request-fakturs').DataTable({
   },
 });
 
+$('#jadwal-penimbangan').DataTable( {
+  responsive: true,
+  dom: "ltp",
+  lengthMenu: [5, 10, 12],
+  order: [[0, 'desc']]
+} );
+

@@ -11,23 +11,29 @@ use Illuminate\Http\Request;
 use App\Charts\PenjualanSampahChart;
 use App\Charts\PenimbanganJenisSampah;
 use App\Charts\PenimbanganJenisSampahChart;
+use App\Charts\StatusTransaksiNasabahChart;
 use App\Models\BukuRekening;
+use App\Models\Faktur;
 
 class AdminDashboardController extends Controller
 {
     public $keuntungan;
     public $saldo;
 
-    public function adminDashboard(PenimbanganJenisSampahChart $chartPenimbangan, PenjualanSampahChart $chartPenjualan)
+    public function adminDashboard(PenimbanganJenisSampahChart $chartPenimbangan, PenjualanSampahChart $chartPenjualan, StatusTransaksiNasabahChart $chartTransaksiNasabah)
     {
-        $data = JenisSampah::all();
+        $jenisSampah = JenisSampah::all();
         $jumlahKg = JenisSampah::withSum('penarikan as jumlah_kg', 'jumlah_kg')->get();
         $pembelian = AdminDashboardController::sumPenarikanByMonth();
         $penjualan = AdminDashboardController::sumPenyetoranByMonth();
+        $statusSelesai = Faktur::where('status', 1)->count();
+        $statusPending = Faktur::where('status', 0)->count();
+        $statusDitolak = Faktur::where('status', 2)->count();
 
         return view('dashboard.main-dashboard.administrator', [
-            'chartPenimbangan' => $chartPenimbangan->build($data, $jumlahKg),
+            'chartPenimbangan' => $chartPenimbangan->build($jenisSampah, $jumlahKg),
             'chartPenjualan' => $chartPenjualan->build($pembelian, $penjualan),
+            'chartTransaksiNasabah' => $chartTransaksiNasabah->build($statusSelesai, $statusPending, $statusDitolak),
             'jumlahNasabah' => User::where('role', 3)->count(),
             'jumlahPetugas' => User::where('role', 2)->count(),
             'jumlahAdministrator' => User::where('role', 1)->count(),
@@ -89,7 +95,7 @@ class AdminDashboardController extends Controller
         $penarikan = Penarikan::sum('total_harga');
         $penyetoran = Setoran::sum('total_harga');
 
-        return $penyetoran-$penarikan;
+        return $penyetoran - $penarikan;
     }
 
     public function sumReportSaldo()

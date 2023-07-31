@@ -9,12 +9,14 @@ use App\Models\Setoran;
 use App\Models\Penarikan;
 use App\Models\JenisSampah;
 use App\Models\BukuRekening;
+use App\Models\JadwalPenimbangan;
 use Illuminate\Http\Request;
 
 class PenimbanganController extends Controller
 {
     public function index() {
         return view('dashboard.penimbangan.index',[
+            'jadwalPenimbangans' => JadwalPenimbangan::all(),
             'minDateRange' => Carbon::now()->format('m-d-Y')
         ]);
     }

@@ -9,8 +9,8 @@ class JenisSampah extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id_jenis_sampah'];
     protected $primaryKey = 'id_jenis_sampah';
+    protected $guarded = ['id_jenis_sampah'];
 
     public function penarikan() {
         return $this->hasMany(Penarikan::class, 'id_jenis_sampah');

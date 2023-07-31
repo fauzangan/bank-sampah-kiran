@@ -3,7 +3,7 @@
 
     @can('nasabah')
     <li class="nav-item {{ Request::is('dashboard/nasabah')? 'active' : '' }}">
-      <a class="nav-link " href="/dashboard/nasabah">
+      <a class="nav-link " href="{{ route('dashboard.nasabah') }}">
         <i class="mdi mdi-grid-large menu-icon"></i>
         <span class="menu-title">Dashboard</span>
       </a>
@@ -19,6 +19,15 @@
       <a class="nav-link" href="{{ route('nasabah.penimbangan.index') }}">
         <i class="mdi mdi-file-document-box-check-outline menu-icon"></i>
         <span class="menu-title">Riwayat Penimbangan</span>
+      </a>
+    </li>
+    @endcan
+
+    @can('petugas')
+    <li class="nav-item {{ Request::is('dashboard/petugas')? 'active' : '' }}">
+      <a class="nav-link " href="{{ route('dashboard.petugas') }}">
+        <i class="mdi mdi-grid-large menu-icon"></i>
+        <span class="menu-title">Dashboard</span>
       </a>
     </li>
     @endcan
@@ -75,12 +84,6 @@
       <a class="nav-link" href="{{ route('buku-rekening.faktur.index') }}">
         <i class="menu-icon mdi mdi-credit-card"></i>
         <span class="menu-title">Penarikan Saldo</span>
-      </a>
-    </li>
-    <li class="nav-item {{ Request::is('dashboard/rekapitulasi')? 'active' : '' }}">
-      <a class="nav-link" href="#">
-        <i class="menu-icon mdi mdi-chart-areaspline-variant"></i>
-        <span class="menu-title">Rekapitulasi</span>
       </a>
     </li>
     <li class="nav-item nav-category">Pengaturan Pengguna</li>
