@@ -40,8 +40,8 @@ class JenisSampahController extends Controller
     {
         $validatedData = $request->validate([
             'nama_sampah' => ['required', 'max:255'],
-            'harga_penarikan_kg' => ['required'],
-            'harga_setoran_kg' => ['required']
+            'harga_penarikan_kg' => ['required', 'numeric'],
+            'harga_setoran_kg' => ['required', 'numeric']
         ]);
 
         JenisSampah::create($validatedData);

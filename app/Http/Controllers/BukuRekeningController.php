@@ -9,8 +9,17 @@ use Illuminate\Http\Request;
 
 class BukuRekeningController extends Controller
 {
+    private $bukurekening;
+    private $fakturs;
+
+    public function __construct()
+    {
+        $this->bukurekening = BukuRekening::with(['faktur', 'nasabah'])->get();
+        $this->fakturs = Faktur::with(['bukuRekening.nasabah'])->get();
+    }
+
     public function index() {
-        $data = BukuRekeningController::totalTransaksiUser(BukuRekening::all());
+        $data = BukuRekeningController::totalTransaksiUser($this->bukurekening);
 
         return view('dashboard.buku-rekening.index', [
             'buku_rekenings' => $data
@@ -19,7 +28,7 @@ class BukuRekeningController extends Controller
 
     public function totalTransaksiUser($object) {
         foreach($object as $data){
-            $data['total_transaksi_user'] = Faktur::where('id_rekening', $data['id_rekening'])->count();
+            $data['total_transaksi_user'] = $this->fakturs->where('id_rekening', $data['id_rekening'])->count();
         }
         return $object;
     }
@@ -33,8 +42,8 @@ class BukuRekeningController extends Controller
     }
 
     public function indexFaktur() {
-        $transaksiSuccess = Faktur::where('status','!=', 0)->get();
-        $transaksiPending = Faktur::where('status', 0)->get();
+        $transaksiSuccess = $this->fakturs->where('status','!=', 0);
+        $transaksiPending = $this->fakturs->where('status', 0);
 
         return view('dashboard.buku-rekening.penarikan-saldo', [
             'transaksiSuccess' => $transaksiSuccess,

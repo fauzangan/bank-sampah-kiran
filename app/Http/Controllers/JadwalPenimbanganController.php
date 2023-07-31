@@ -9,7 +9,7 @@ class JadwalPenimbanganController extends Controller
 {
     public function storeJadwalPenimbangan(Request $request) {
         $validatedData = $request->validate([
-            'tanggal' => ['required'],
+            'tanggal' => ['required', 'date'],
             'jam' => ['required']
         ]);
 
@@ -34,7 +34,7 @@ class JadwalPenimbanganController extends Controller
     public function updateJadwalPenimbangan(Request $request) {
         $validatedData = $request->validate([
             'id_jadwal_penimbangan' => ['required'],
-            'tanggal' => ['required'],
+            'tanggal' => ['required', 'date'],
             'jam' => ['required']
         ]);
 

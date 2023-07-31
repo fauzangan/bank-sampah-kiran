@@ -17,28 +17,37 @@ use App\Models\Faktur;
 
 class AdminDashboardController extends Controller
 {
-    public $keuntungan;
-    public $saldo;
+    private $penarikan;
+    private $penyetoran;
+
+    public function __construct()
+    {
+        $this->penarikan = Penarikan::all();
+        $this->penyetoran = Setoran::all();
+    }
 
     public function adminDashboard(PenimbanganJenisSampahChart $chartPenimbangan, PenjualanSampahChart $chartPenjualan, StatusTransaksiNasabahChart $chartTransaksiNasabah)
     {
         $jenisSampah = JenisSampah::all();
+        $fakturs = Faktur::all();
+        $users = User::all();
         $jumlahKg = JenisSampah::withSum('penarikan as jumlah_kg', 'jumlah_kg')->get();
         $pembelian = AdminDashboardController::sumPenarikanByMonth();
         $penjualan = AdminDashboardController::sumPenyetoranByMonth();
-        $statusSelesai = Faktur::where('status', 1)->count();
-        $statusPending = Faktur::where('status', 0)->count();
-        $statusDitolak = Faktur::where('status', 2)->count();
+        $statusSelesai = $fakturs->where('status', 1)->count();
+        $statusPending = $fakturs->where('status', 0)->count();
+        $statusDitolak = $fakturs->where('status', 2)->count();
+
 
         return view('dashboard.main-dashboard.administrator', [
             'chartPenimbangan' => $chartPenimbangan->build($jenisSampah, $jumlahKg),
             'chartPenjualan' => $chartPenjualan->build($pembelian, $penjualan),
             'chartTransaksiNasabah' => $chartTransaksiNasabah->build($statusSelesai, $statusPending, $statusDitolak),
-            'jumlahNasabah' => User::where('role', 3)->count(),
-            'jumlahPetugas' => User::where('role', 2)->count(),
-            'jumlahAdministrator' => User::where('role', 1)->count(),
-            'jumlahPenimbangan' => Penarikan::count() + Setoran::count(),
-            'totalSampah' => Penarikan::sum('jumlah_kg'),
+            'jumlahNasabah' => $users->where('role', 3)->count(),
+            'jumlahPetugas' => $users->where('role', 2)->count(),
+            'jumlahAdministrator' => $users->where('role', 1)->count(),
+            'jumlahPenimbangan' => $this->penarikan->count() + $this->penyetoran->count(),
+            'totalSampah' => $this->penarikan->sum('jumlah_kg'),
             'reportKeuntungan' => AdminDashboardController::sumReportKeuntungan(),
             'reportSaldo' => AdminDashboardController::sumReportSaldo()
         ]);
@@ -92,10 +101,14 @@ class AdminDashboardController extends Controller
 
     public function sumReportKeuntungan()
     {
-        $penarikan = Penarikan::sum('total_harga');
-        $penyetoran = Setoran::sum('total_harga');
+        $penarikan = $this->penarikan->sum('total_harga');
+        $penyetoran = $this->penyetoran->sum('total_harga');
 
-        return $penyetoran - $penarikan;
+        if($penyetoran-$penarikan <= 0){
+            return 0;
+        }else{
+            return $penyetoran - $penarikan;
+        }
     }
 
     public function sumReportSaldo()
