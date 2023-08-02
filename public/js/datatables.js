@@ -235,3 +235,10 @@ $('#jadwal-penimbangan').DataTable( {
   order: [[0, 'desc']]
 } );
 
+$('#nasabah-jadwal-penimbangan').DataTable( {
+  responsive: true,
+  dom: "tp",
+  lengthMenu: [5, 10, 12],
+  order: [[0, 'asc']]
+} );
+

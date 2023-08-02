@@ -19,6 +19,6 @@ class StatusTransaksiNasabahChart
             ->addData([$selesai, $pending, $ditolak])
             ->setWidth(350)
             ->setLabels(['Selesai', 'Pending', 'Ditolak'])
-            ->setColors(['#00ff99', '#ffd633', '#ff4d4d']);
+            ->setColors(['#26e7a5', '#ffd633', '#ff455f']);
     }
 }

@@ -34,9 +34,9 @@
 </div>
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Histori Transaksi Sampah</h4>
+        <h4 class="card-title">Riwayat Transaksi</h4>
         <p class="card-description">
-            Histori Transaksi penimbangan sampah
+            List Faktur Anda
         </p>
         <div class="table-responsive">
             <table id="fakturs" class="table table-hover">

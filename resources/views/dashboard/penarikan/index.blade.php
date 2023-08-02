@@ -16,11 +16,11 @@
         <h3 class="rate-percentage">{{ $avg_kg }} Kg</h3>
       </div>
       <div>
-        <p class="statistics-title">Total Harga Penarikan</p>
+        <p class="statistics-title">Total Nominal Penarikan</p>
         <h3 class="rate-percentage">Rp {{ $total_harga }}</h3>
       </div>
       <div class="d-none d-md-block">
-        <p class="statistics-title">Rata-rata Harga Penarikan</p>
+        <p class="statistics-title">Rata-rata Nominal Penarikan</p>
         <h3 class="rate-percentage">Rp {{ $avg_harga }}</h3>
       </div>
     </div>

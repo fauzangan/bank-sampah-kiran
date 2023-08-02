@@ -4,7 +4,7 @@ namespace App\Charts;
 
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 
-class PenjualanSampahChart
+class NasabahPenimbanganSampahChart
 {
     protected $chart;
 
@@ -13,11 +13,10 @@ class PenjualanSampahChart
         $this->chart = $chart;
     }
 
-    public function build($pembelian, $penjualan): \ArielMejiaDev\LarapexCharts\BarChart
+    public function build($pembelianByMonth): \ArielMejiaDev\LarapexCharts\LineChart
     {
-        return $this->chart->barChart()
-            ->addData('Pembelian', $pembelian)
-            ->addData('Penjualan', $penjualan)
+        return $this->chart->lineChart()
+            ->addData('Penimbangan Sampah', $pembelianByMonth)
             ->setHeight(450)
             ->setXAxis(['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']);
     }

@@ -2,7 +2,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Histori Transaksi Sampah</h4>
+        <h4 class="card-title">Riwayat Transaksi Sampah</h4>
         <p class="card-description">
             Histori Transaksi penimbangan sampah
         </p>
@@ -11,6 +11,7 @@
                 <thead>
                     <tr>
                         <th>Tanggal Transaksi </th>
+                        <th>Jam</th>
                         <th>Jenis Sampah</th>
                         <th>Total Berat</th>
                         <th>Total Harga</th>
@@ -19,7 +20,8 @@
                 <tbody>
                     @foreach($penarikans as $penarikan)
                     <tr>
-                        <td>{{ $penarikan->created_at }}</td>
+                        <td>{{ $penarikan->created_at->translatedFormat('d F Y') }}</td>
+                        <td>{{ $penarikan->created_at->toTimeString() }}</td>
                         <td>{{ $penarikan->jenisSampah->nama_sampah }}</td>
                         <td>{{ $penarikan->jumlah_kg }} Kg</td>
                         <td>Rp {{ number_format($penarikan->total_harga,2,",",".") }}</td>
