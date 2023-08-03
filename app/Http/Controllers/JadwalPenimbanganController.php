@@ -14,7 +14,7 @@ class JadwalPenimbanganController extends Controller
         ]);
 
         JadwalPenimbangan::create($validatedData);
-        return redirect(route('penimbangan'));
+        return redirect(route('penimbangan'))->with('success', 'Jadwal Penimbangan Berhasil Dibuat!');
     }
 
     public function updateStatusJadwal(Request $request, $id) {
@@ -23,7 +23,7 @@ class JadwalPenimbanganController extends Controller
         ]);
 
         JadwalPenimbangan::where('id_jadwal_penimbangan', $id)->update($validatedData);
-        return redirect(route('penimbangan'));
+        return redirect(route('penimbangan'))->with('success', 'Status Jadwal Berhasil Diubah!');
     }
 
     public function editJadwalPenimbangan($id) {
@@ -39,6 +39,6 @@ class JadwalPenimbanganController extends Controller
         ]);
 
         JadwalPenimbangan::where('id_jadwal_penimbangan', $request->id_jadwal_penimbangan)->update($validatedData);
-        return redirect(route('penimbangan'));
+        return redirect(route('penimbangan'))->with('success', 'Jadwal Penimbangan Berhasil Diubah!');
     }
 }

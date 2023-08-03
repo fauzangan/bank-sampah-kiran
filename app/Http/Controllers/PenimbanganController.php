@@ -38,7 +38,7 @@ class PenimbanganController extends Controller
         Penarikan::create($validatedData);
         PenimbanganController::updateSaldo($request->id_user, $request->total_harga);
         PenimbanganController::createFaktur($request->id_user, $request->total_harga);
-        return redirect('/dashboard/penimbangan');
+        return redirect('/dashboard/penimbangan')->with('success', 'Penarikan Berhasil Dilakukan!');
     }
 
     public function penyetoran() {
@@ -62,7 +62,7 @@ class PenimbanganController extends Controller
         ]);
 
         Setoran::create($validatedData);
-        return redirect('/dashboard/penimbangan');
+        return redirect('/dashboard/penimbangan')->with('success', 'Penyetoran Berhasil Dilakukan!');
     }
 
     public function updateSaldo($id,$saldo) {
