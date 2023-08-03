@@ -32,8 +32,8 @@
         <div class="row w-100 mx-0">
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
-                <img src="../../images/logo.svg" alt="logo">
+              <div class="brand-logo d-flex justify-content-center">
+                <img src="../../images/bank-sampah-kiran-logo.png" style="width: 50%" alt="logo">
               </div>
               <h4>Selamat Datang di Bank Sampah Kiran</h4>
               <h6 class="fw-light">Login untuk melanjutkan.</h6>

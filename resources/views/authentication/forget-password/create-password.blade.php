@@ -45,7 +45,7 @@
                                 <input type="hidden" name="token" value="{{ $token }}">
                                 <div class="input-group">
                                     <input type="email" name="email" class="form-control form-control-lg"
-                                        id="email" placeholder="Email...">
+                                        id="email" placeholder="Konfirmasi Email...">
                                 </div>
                                 <div class="input-group mt-3">
                                     <input type="password" name="password" class="form-control form-control-lg"

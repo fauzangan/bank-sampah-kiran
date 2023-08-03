@@ -24,7 +24,7 @@ class CheckSuspend
 
             $request->session()->regenerateToken();
 
-            return redirect()->route('login')->with('loginError', 'Akun anda telah disuspend, kontak admin untuk informasi lebih lanjut.');
+            return redirect()->route('login')->with('loginError', 'Akun anda telah dinonaktifkan, kontak admin untuk informasi lebih lanjut.');
         }
         return $next($request);
     }

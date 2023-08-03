@@ -6,12 +6,30 @@
       </button>
     </div>
     <div>
-      <a class="navbar-brand brand-logo" href="index.html">
-        <img src="{{ asset('images/logo.svg') }}" alt="logo" height="200px" />
+      @can('administrator')
+      <a class="navbar-brand brand-logo" href="{{ route('dashboard.admin') }}">
+        <img src="{{ asset('images/bank-sampah-kiran-logo.png') }}" alt="logo" width="150%" height="200px" />
       </a>
-      <a class="navbar-brand brand-logo-mini" href="index.html">
+      <a class="navbar-brand brand-logo-mini" href="{{ route('dashboard.admin') }}">
         <img src="{{ asset('images/logo-mini.svg') }}" alt="logo" />
       </a>
+      @endcan
+      @can('petugas')
+      <a class="navbar-brand brand-logo" href="{{ route('dashboard.petugas') }}">
+        <img src="{{ asset('images/bank-sampah-kiran-logo.png') }}" alt="logo" width="150%" height="200px" />
+      </a>
+      <a class="navbar-brand brand-logo-mini" href="{{ route('dashboard.petugas') }}">
+        <img src="{{ asset('images/logo-mini.svg') }}" alt="logo" />
+      </a>
+      @endcan
+      @can('nasabah')
+      <a class="navbar-brand brand-logo" href="{{ route('dashboard.nasabah') }}">
+        <img src="{{ asset('images/bank-sampah-kiran-logo.png') }}" alt="logo" width="150%" height="200px" />
+      </a>
+      <a class="navbar-brand brand-logo-mini" href="{{ route('dashboard.nasabah') }}">
+        <img src="{{ asset('images/logo-mini.svg') }}" alt="logo" />
+      </a>
+      @endcan
     </div>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-top">
