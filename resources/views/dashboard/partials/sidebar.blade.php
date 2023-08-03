@@ -8,6 +8,12 @@
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
+    <li class="nav-item {{ Request::is('dashboard/nasabah/jenis-sampah')? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('dashboard.nasabah.jenis-sampah') }}">
+        <i class="mdi mdi-shape-outline menu-icon"></i>
+        <span class="menu-title">Jenis Sampah</span>
+      </a>
+    </li>
     <li class="nav-item nav-category">Rekening Nasabah</li>
     <li class="nav-item {{ Request::is('dashboard/nasabah/buku-rekening')? 'active' : '' }}">
       <a class="nav-link " href="{{ route('nasabah.buku-rekening') }}">

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BukuRekening;
+use App\Models\User;
 use App\Models\Faktur;
 use App\Models\Penarikan;
-use App\Models\User;
+use App\Models\JenisSampah;
+use App\Models\BukuRekening;
 use Illuminate\Http\Request;
 
 class NasabahMenuController extends Controller
@@ -49,6 +50,12 @@ class NasabahMenuController extends Controller
         
         BukuRekening::where('id_rekening', $buku->id_rekening)->update([
             'saldo' => $buku['saldo']
+        ]);
+    }
+
+    public function indexJenisSampah() {
+        return view('dashboard.nasabah-menu.index-jenis-sampah', [
+            'jenisSampah' => JenisSampah::all()
         ]);
     }
 }

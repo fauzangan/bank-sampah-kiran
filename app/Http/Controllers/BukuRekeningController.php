@@ -63,7 +63,7 @@ class BukuRekeningController extends Controller
             ]);
         }
 
-        return redirect(route('buku-rekening.faktur.index'));
+        return redirect(route('buku-rekening.faktur.index'))->with('success', 'Update Transaksi Berhasil!');
     }
 
     public function updateSaldo($id,$saldo) {

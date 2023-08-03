@@ -45,7 +45,7 @@ class JenisSampahController extends Controller
         ]);
 
         JenisSampah::create($validatedData);
-        return redirect(route('jenis-sampah.index'));
+        return redirect(route('jenis-sampah.index'))->with('success', 'Jenis Sampah Berhasil Dibuat!');
     }
 
     /**
@@ -89,7 +89,7 @@ class JenisSampahController extends Controller
         ]);
 
         JenisSampah::where('id_jenis_sampah', $id)->update($validatedData);
-        return redirect(route('jenis-sampah.index'));
+        return redirect(route('jenis-sampah.index'))->with('success', 'Jenis Sampah Berhasil diedit!');
     }
 
     /**

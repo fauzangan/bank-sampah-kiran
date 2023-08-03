@@ -1,19 +1,5 @@
 @extends('dashboard.layouts.main')
 @section('content')
-@if(session()->has('success'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  {{ session('success') }}
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-@endif
-
-@if(session()->has('warning'))
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  {{ session('warning') }}
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-@endif
-
 {{-- Symbol --}}
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -38,34 +24,46 @@
 @endif
 {{-- Alert --}}
 
-<div class="card mx-5 px-4 py-2">
+<div class="card">
     <div class="card-body">
-        <h4 class="card-title">Ubah Password</h4>
-        <form action="{{ route('user.change-password.store') }}" class="forms-sample" method="POST">
+        <h4 class="card-title">Form Tambah Petugas</h4>
+        <p class="card-description">
+            Biodata Petugas
+        </p>
+        <form action="{{ route('user.petugas.store') }}" class="forms-sample" method="POST">
             @csrf
             <div class="form-group row align-items-center">
-                <label for="old_password" class="col-sm-2 col-form-label">Password Lama</label>
+                <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" name="old_password" id="old_password">
+                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama..." required>
                 </div>
             </div>
             <div class="form-group row align-items-center">
-                <label for="password" class="col-sm-2 col-form-label">Password Baru</label>
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" name="password" id="password">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email..." required>
                 </div>
             </div>
             <div class="form-group row align-items-center">
-                <label for="password_confirmation" class="col-sm-2 col-form-label">Konfirmasi Password</label>
+                <label for="password" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+                    <input type="password" class="form-control" id="password" name="password"
+                    placeholder="Password..." required>
+                </div>
+            </div>
+            <div class="form-group row align-items-center">
+                <label for="password_confirmation" class="col-sm-2 col-form-label">Confirm Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password_confirmation"
+                    name="password_confirmation" placeholder="Konfirmasi Password" required>
                 </div>
             </div>
             <div class="d-flex align-items-center justify-content-center">
-                <button type="submit" class="btn btn-warning btn-lg"><i class="mdi mdi-content-save-edit-outline"></i>Update Password</button>
+                <button type="submit" class="btn btn-info btn-lg"><i class="mdi mdi-content-save-edit-outline"></i>Submit Data</button>
             </div>
         </form>
     </div>
 </div>
-@endsection
+
 <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
+@endsection

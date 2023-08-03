@@ -67,26 +67,33 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/histori/penyetoran', [PenyetoranController::class, 'index'])->name('histori.penyetoran');
         Route::get('/dashboard/inventori', [InvetoriSampahController::class, 'index'])->name('inventori.sampah');
         Route::get('/dashboard/pengguna/nasabah', [UserController::class, 'indexNasabah'])->name('user.nasabah.index');
-        Route::put('/dashboard/pengguna/nasabah/{user}', [UserController::class, 'updateStatus']);
         Route::get('/dashboard/pengguna/petugas', [UserController::class, 'indexPetugas'])->name('user.petugas.index');
         Route::get('/dashboard/pengguna/administrator', [UserController::class, 'indexAdministrator'])->name('user.administrator.index');
+        Route::get('/dashboard/pengguna/create-administrator', [UserController::class, 'createAdministrator'])->name('user.administrator.create');
+        Route::post('/dashboard/pengguna/create-administrator', [UserController::class, 'storeAdministrator'])->name('user.administrator.store');
+        Route::get('/dashboard/petugas/create-petugas', [UserController::class, 'createPetugas'])->name('user.petugas.create');
+        Route::post('/dashboard/petugas/create-petugas', [UserController::class, 'storePetugas'])->name('user.petugas.store');
+        Route::put('/dashboard/pengguna/{user}/status', [UserController::class, 'updateStatus']);
         Route::get('/dashboard/buku-rekening', [BukuRekeningController::class, 'index'])->name('buku-rekening.index');
         Route::get('/dashboard/buku-rekening/{bukurekening}', [BukuRekeningController::class, 'detailFaktur']);
         Route::get('/dashboard/penarikan-saldo', [BukuRekeningController::class, 'indexFaktur'])->name('buku-rekening.faktur.index');
         Route::put('/dashboard/penarikan-saldo/{faktur}/status', [BukuRekeningController::class, 'updateStatusFaktur']);
     });
 
-    Route::middleware('petugas')->group(function () {
-        Route::get('/dashboard/petugas', [PetugasDashboardController::class, 'petugasDashboard'])->name('dashboard.petugas');
-        Route::get('/dashboard/petugas/penimbangan', [PetugasMenuController::class, 'indexPenimbangan'])->name('dashboard.petugas.penimbangan');
-        Route::get('/dashboard/petugas/jenis-sampah', [PetugasMenuController::class, 'indexJenisSampah'])->name('dashboard.petugas.jenis-sampah');
-    });
-
-    Route::middleware('nasabah')->group(function () {
-        Route::get('/dashboard/nasabah', [NasabahDashboardController::class, 'nasabahDashboard'])->name('dashboard.nasabah');
-        Route::get('/dashboard/nasabah/buku-rekening', [NasabahMenuController::class, 'indexRekening'])->name('nasabah.buku-rekening');
-        Route::get('/dashboard/nasabah/penimbangan', [NasabahMenuController::class, 'indexPenimbangan'])->name('nasabah.penimbangan.index');
-        Route::post('/dashboard/nasabah/buku-rekening', [NasabahMenuController::class, 'requestPenarikanSaldo'])->name('nasabah.buku-rekening.penarikan');
+    Route::middleware('isActive')->group(function(){
+        Route::middleware('petugas')->group(function () {
+            Route::get('/dashboard/petugas', [PetugasDashboardController::class, 'petugasDashboard'])->name('dashboard.petugas');
+            Route::get('/dashboard/petugas/penimbangan', [PetugasMenuController::class, 'indexPenimbangan'])->name('dashboard.petugas.penimbangan');
+            Route::get('/dashboard/petugas/jenis-sampah', [PetugasMenuController::class, 'indexJenisSampah'])->name('dashboard.petugas.jenis-sampah');
+        });
+    
+        Route::middleware('nasabah')->group(function () {
+            Route::get('/dashboard/nasabah', [NasabahDashboardController::class, 'nasabahDashboard'])->name('dashboard.nasabah');
+            Route::get('/dashboard/nasabah/jenis-sampah', [NasabahMenuController::class, 'indexJenisSampah'])->name('dashboard.nasabah.jenis-sampah');
+            Route::get('/dashboard/nasabah/buku-rekening', [NasabahMenuController::class, 'indexRekening'])->name('nasabah.buku-rekening');
+            Route::get('/dashboard/nasabah/penimbangan', [NasabahMenuController::class, 'indexPenimbangan'])->name('nasabah.penimbangan.index');
+            Route::post('/dashboard/nasabah/buku-rekening', [NasabahMenuController::class, 'requestPenarikanSaldo'])->name('nasabah.buku-rekening.penarikan');
+        });
     });
 
     Route::post('/logout', [AuthenticationController::class, 'logout']);
