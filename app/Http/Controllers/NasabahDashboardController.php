@@ -29,14 +29,14 @@ class NasabahDashboardController extends Controller
         $jenisSampah = $this->jenisSampah;
 
         $penimbanganByMonth = NasabahDashboardController::sumPenarikanByMonth($user);
-        $rekapan = NasabahDashboardController::penimbanganByJenisSampah($user, $jenisSampah);
+        $rekapanJenisSampah = NasabahDashboardController::penimbanganByJenisSampah($user, $jenisSampah);
         $namaJenisSampah = NasabahDashboardController::labelToArray($jenisSampah);
 
         $totalHargaPenarikan = $this->penarikan->where('id_user', $user->id_user)->sum('total_harga');
 
         return view('dashboard.main-dashboard.nasabah', [
             'chartPenimbangan' => $chartPenimbangan->build($penimbanganByMonth),
-            'chartJenisSampah' => $chartJenisSampah->build($rekapan, $namaJenisSampah),
+            'chartJenisSampah' => $chartJenisSampah->build($rekapanJenisSampah, $namaJenisSampah),
             'totalHargaPenarikan' => $totalHargaPenarikan,
             'totalTransaksi' => NasabahDashboardController::totalTransaksi($user),
             'minPenimbangan' => NasabahDashboardController::minPenimbangan($user),
@@ -87,31 +87,36 @@ class NasabahDashboardController extends Controller
                 $penarikanArr[$i] = 0;
             }
         }
-        
+
         return $penarikanArr;
     }
 
-    public function labelToArray($data){
+    public function labelToArray($data)
+    {
         $dataset = array();
-        for($i = 0; $i < $data->count(); $i++){
+        for ($i = 0; $i < $data->count(); $i++) {
             $dataset[$i] = $data[$i]->nama_sampah;
         }
         return $dataset;
     }
 
-    public function totalTransaksi($user) {
+    public function totalTransaksi($user)
+    {
         return $this->penarikan->where('id_user', $user->id_user)->count();
     }
 
-    public function minPenimbangan($user) {
+    public function minPenimbangan($user)
+    {
         return $this->penarikan->where('id_user', $user->id_user)->min('jumlah_kg');
     }
 
-    public function maxPenimbangan($user) {
+    public function maxPenimbangan($user)
+    {
         return $this->penarikan->where('id_user', $user->id_user)->max('jumlah_kg');
     }
 
-    public function avgPenimbangan($user) {
+    public function avgPenimbangan($user)
+    {
         return $this->penarikan->where('id_user', $user->id_user)->avg('jumlah_kg');
     }
 }

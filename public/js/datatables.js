@@ -232,13 +232,34 @@ $('#jadwal-penimbangan').DataTable( {
   responsive: true,
   dom: "ltp",
   lengthMenu: [5, 10, 12],
-  order: [[0, 'desc']]
+  order: [[0, 'desc']],
+  language: {
+    "lengthMenu": "Menampilkan _MENU_ data",
+    "zeroRecords": "Jadwal Penimbangan Belum Dibuat",
+    "paginate": {
+      "first": "Pertama",
+      "last": "Terakhir",
+      "next": "Selanjutnya",
+      "previous": "Sebelumnya"
+    },
+  }
+  
 } );
 
-$('#nasabah-jadwal-penimbangan').DataTable( {
+$('#show-jadwal-penimbangan').DataTable( {
   responsive: true,
   dom: "tp",
-  lengthMenu: [5, 10, 12],
-  order: [[0, 'asc']]
+  lengthMenu: [3, 5],
+  order: [[0, 'asc']],
+  language: {
+    "lengthMenu": "Menampilkan _MENU_ data",
+    "zeroRecords": "Tidak ada Jadwal Penimbangan",
+    "paginate": {
+      "first": "Pertama",
+      "last": "Terakhir",
+      "next": "Selanjutnya",
+      "previous": "Sebelumnya"
+    },
+  }
 } );
 

@@ -42,9 +42,14 @@ class PenimbanganController extends Controller
     }
 
     public function penyetoran() {
+        $res = JenisSampah::withSum('penarikan as jumlah_kg', 'jumlah_kg')->get();
+        $sub = JenisSampah::withSum('setoran as jumlah_kg', 'jumlah_kg')->get();
+        $inventory = (new InvetoriSampahController)->totalBeratSampah($res, $sub);
+
         return view('dashboard.penimbangan.penyetoran', [
             'jenis_sampahs' => JenisSampah::all(),
-            'users' => User::where('role', 2)->get()
+            'users' => User::where('role', 2)->get(),
+            'inventories' => $inventory
         ]);
     }
 

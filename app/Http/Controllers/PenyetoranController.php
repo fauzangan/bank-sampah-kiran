@@ -9,7 +9,7 @@ class PenyetoranController extends Controller
 {
     public function index() {
         $penyetorans = Setoran::with(['jenisSampah', 'user'])->get();
-
+        
         return view('dashboard.penyetoran.index', [
             'penyetorans' => $penyetorans,
             'total_penyetoran' => $penyetorans->count(),
@@ -20,7 +20,4 @@ class PenyetoranController extends Controller
         ]);
     }
 
-    public function inventory() {
-        
-    }
 }

@@ -30,6 +30,19 @@
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
+    <li class="nav-item nav-category">Petugas Menu</li>
+    <li class="nav-item {{ Request::is('dashboard/petugas/jenis-sampah')? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('dashboard.petugas.jenis-sampah') }}">
+        <i class="mdi mdi-shape-outline menu-icon"></i>
+        <span class="menu-title">Jenis Sampah</span>
+      </a>
+    </li>
+    <li class="nav-item {{ Request::is('dashboard/petugas/penimbangan')? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('dashboard.petugas.penimbangan') }}">
+        <i class="mdi mdi-file-document-box-check-outline menu-icon"></i>
+        <span class="menu-title">Riwayat Penimbangan</span>
+      </a>
+    </li>
     @endcan
 
     @can('administrator')

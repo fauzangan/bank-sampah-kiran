@@ -64,7 +64,7 @@
                 <div class="card card-rounded">
                     <div class="card-body">
                         <h4 class="card-title card-title-dash">Jadwal Penimbangan Selanjutnya</h4>
-                        <table id="nasabah-jadwal-penimbangan" class="table table-hover">
+                        <table id="show-jadwal-penimbangan" class="table table-hover">
                             <thead>
                                 <tr>
                                     <th>Tanggal</th>

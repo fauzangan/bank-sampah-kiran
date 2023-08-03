@@ -15,6 +15,7 @@ use App\Http\Controllers\NasabahDashboardController;
 use App\Http\Controllers\NasabahMenuController;
 use App\Http\Controllers\PenyetoranController;
 use App\Http\Controllers\PetugasDashboardController;
+use App\Http\Controllers\PetugasMenuController;
 use App\Http\Controllers\UserController;
 use App\Models\JadwalPenimbangan;
 use Illuminate\Support\Facades\Route;
@@ -77,6 +78,8 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('petugas')->group(function () {
         Route::get('/dashboard/petugas', [PetugasDashboardController::class, 'petugasDashboard'])->name('dashboard.petugas');
+        Route::get('/dashboard/petugas/penimbangan', [PetugasMenuController::class, 'indexPenimbangan'])->name('dashboard.petugas.penimbangan');
+        Route::get('/dashboard/petugas/jenis-sampah', [PetugasMenuController::class, 'indexJenisSampah'])->name('dashboard.petugas.jenis-sampah');
     });
 
     Route::middleware('nasabah')->group(function () {

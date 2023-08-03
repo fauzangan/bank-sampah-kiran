@@ -46,3 +46,9 @@ const rupiah = (number)=>{
       currency: "IDR"
     }).format(number);
   }
+
+  $('#show-inventori-sampah').DataTable( {
+    responsive: true,
+    dom: "ltp",
+    lengthMenu: [5],
+  } );
