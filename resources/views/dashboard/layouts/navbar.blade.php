@@ -61,8 +61,8 @@
               class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> Profil Saya </a>
           <a class="dropdown-item" href="{{ route('user.change-password') }}"><i
               class="dropdown-item-icon mdi mdi-key-variant text-primary me-2"></i> Ubah Password</a>
-          <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i>
-            Log Aktivitas</a>
+          {{-- <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i>
+            Log Aktivitas</a> --}}
           <form action="/logout" method="POSt">
             @csrf
             <button type="submit" class="dropdown-item"><i

@@ -180,4 +180,5 @@
     src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/date-1.4.1/datatables.min.js">
 </script>
 <script src="{{ asset('js/penyetoran.js') }}"></script>
+<script src="{{ asset('js/loadcell.js') }}"></script>
 @endsection

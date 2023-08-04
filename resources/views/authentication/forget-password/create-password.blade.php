@@ -28,7 +28,7 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                             <div class="brand-logo">
-                                <img src="../../images/logo.svg" alt="logo">
+                                <img src="../../images/bank-sampah-kiran-logo.png" alt="logo">
                             </div>
                             <h4>Form Reset Password</h4>
                             <h6 class="fw-light">Masukan Password Baru</h6>

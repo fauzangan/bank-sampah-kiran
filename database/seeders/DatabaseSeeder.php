@@ -7,7 +7,9 @@ namespace Database\Seeders;
 use App\Models\BukuRekening;
 use Illuminate\Database\Seeder;
 use \App\Models\JenisSampah;
+use App\Models\Loadcell;
 use \App\Models\User;
+use Carbon\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,42 +27,101 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        Loadcell::create([
+            'weight' => 0
+        ]);
+
         User::create([
             'role' => 1,
             'nama' => 'Fauzan Zaman',
             'email' => 'test1@gmail.com',
             'password' => bcrypt('password'),
-            'alamat' => 'test',
-            'no_telepon' => '012931293'
+            'alamat' => '-',
+            'no_telepon' => '-'
         ]);
 
         User::create([
             'role' => 2,
-            'nama' => 'Ilyasa',
-            'email' => 'test2@gmail.com',
+            'nama' => 'Ilyasa Aliajrun',
+            'email' => 'petugas1@gmail.com',
             'password' => bcrypt('password'),
-            'alamat' => 'test',
-            'no_telepon' => '129302193290'
+            'alamat' => '-',
+            'no_telepon' => '081231284433'
+        ]);
+
+        User::create([
+            'role' => 2,
+            'nama' => 'Rizky Kurniawan',
+            'email' => 'petugas2@gmail.com',
+            'password' => bcrypt('password'),
+            'alamat' => '-',
+            'no_telepon' => '085312452233'
         ]);
 
         User::create([
             'role' => 3,
-            'nama' => 'Lukman',
-            'email' => 'test3@gmail.com',
+            'nama' => 'Lukman Ernandi',
+            'email' => 'nasabah1@gmail.com',
             'password' => bcrypt('password'),
-            'alamat' => 'test',
-            'no_telepon' => '01209128390128'
+            'alamat' => fake()->address(),
+            'no_telepon' => '087212853311'
         ]);
 
         User::create([
             'role' => 3,
-            'nama' => 'Syahrul',
-            'email' => 'test4@gmail.com',
+            'nama' => 'Syahrul Ramadhan',
+            'email' => 'nasabah2@gmail.com',
             'password' => bcrypt('password'),
-            'alamat' => 'test',
-            'no_telepon' => '12412312312',
+            'alamat' => fake()->address(),
+            'no_telepon' => fake()->unique()->phoneNumber(),
             'isActive' => 0
         ]);
+
+        User::create([
+            'role' => 3,
+            'nama' => 'Faisal Ahmad',
+            'email' => 'nasabah3@gmail.com',
+            'password' => bcrypt('password'),
+            'alamat' => fake()->address(),
+            'no_telepon' => fake()->unique()->phoneNumber(),
+        ]);
+
+        User::create([
+            'role' => 3,
+            'nama' => 'Ahmad Dafa',
+            'email' => 'nasabah4@gmail.com',
+            'password' => bcrypt('password'),
+            'alamat' => fake()->address(),
+            'no_telepon' => fake()->unique()->phoneNumber(),
+        ]);
+
+        User::create([
+            'role' => 3,
+            'nama' => 'Sujiwo Tejo',
+            'email' => 'nasabah5@gmail.com',
+            'password' => bcrypt('password'),
+            'alamat' => fake()->address(),
+            'no_telepon' => fake()->unique()->phoneNumber(),
+        ]);
+
+        User::create([
+            'role' => 3,
+            'nama' => 'Fajar Syidik',
+            'email' => 'nasabah6@gmail.com',
+            'password' => bcrypt('password'),
+            'alamat' => fake()->address(),
+            'no_telepon' => fake()->unique()->phoneNumber(),
+        ]);
+
+        User::create([
+            'role' => 3,
+            'nama' => 'Ahmad Yudha',
+            'email' => 'nasabah7@gmail.com',
+            'password' => bcrypt('password'),
+            'alamat' => fake()->address(),
+            'no_telepon' => fake()->unique()->phoneNumber(),
+        ]);
+
 
         JenisSampah::create([
             'nama_sampah' => 'Kardus',

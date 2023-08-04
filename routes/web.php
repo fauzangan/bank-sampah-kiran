@@ -11,6 +11,7 @@ use App\Http\Controllers\InvetoriSampahController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\JadwalPenarikanController;
 use App\Http\Controllers\JadwalPenimbanganController;
+use App\Http\Controllers\LoadcellController;
 use App\Http\Controllers\NasabahDashboardController;
 use App\Http\Controllers\NasabahMenuController;
 use App\Http\Controllers\PenyetoranController;
@@ -34,6 +35,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function() {
     return redirect()->route('login');
 });
+
+Route::get('/read-loadcell', [LoadcellController::class, 'readWeight']);
+Route::get('/simpan/{weight}', [LoadcellController::class, 'getLoadcellValue']);
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthenticationController::class, 'index'])->name('login');
