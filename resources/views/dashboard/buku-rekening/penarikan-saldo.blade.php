@@ -44,7 +44,7 @@
                 <tbody>
                     @foreach($transaksiPending as $transaksi)
                     <tr>
-                        <td>{{ $transaksi->created_at }}</td>
+                        <td>{{ $transaksi->created_at->translatedFormat('d F Y') }}</td>
                         <td>{{ $transaksi->bukuRekening->nasabah->nama }}</td>
                         @if($transaksi->jenis_transaksi != 1)
                         <td>Rp {{ number_format($transaksi->nominal,2,",",".") }}</td>
@@ -101,7 +101,7 @@
                 <tbody>
                     @foreach($transaksiSuccess as $transaksi)
                     <tr>
-                        <td>{{ $transaksi->created_at }}</td>
+                        <td>{{ $transaksi->created_at->translatedFormat('d F Y') }}</td>
                         <td>{{ $transaksi->bukuRekening->nasabah->nama }}</td>
                         @if($transaksi->jenis_transaksi != 1)
                         <td>Rp {{ number_format($transaksi->nominal,2,",",".") }}</td>
@@ -118,7 +118,7 @@
                             @endif
                         </td>
                         <td>
-                            {{ $transaksi->updated_at }}
+                            {{ $transaksi->updated_at->translatedFormat('d F Y') }}
                         </td>
                     </tr>
                     @endforeach

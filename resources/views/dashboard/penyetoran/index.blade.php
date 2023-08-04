@@ -46,7 +46,7 @@
                 <tbody>
                     @foreach($penyetorans as $penyetoran)
                     <tr>
-                        <td>{{ $penyetoran->created_at->toFormattedDateString() }} / {{ $penyetoran->created_at->toTimeString() }}</td>
+                        <td>{{ $penyetoran->created_at->translatedFormat('d F Y') }} / {{ $penyetoran->created_at->toTimeString() }}</td>
                         <td>{{ $penyetoran->jenisSampah->nama_sampah }}</td>
                         <td>{{ $penyetoran->user->nama }}</td>
                         <td>{{ $penyetoran->jumlah_kg }}</td>

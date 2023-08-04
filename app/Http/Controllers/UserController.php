@@ -58,7 +58,7 @@ class UserController extends Controller
             'nama' => ['required', 'min:3', 'max:50'],
             'email' => ['required', 'email', 'unique:users'],
             'alamat' => ['required'],
-            'no_telepon' => ['required'],
+            'no_telepon' => ['required','numeric'],
             'password' => ['required', 'confirmed', 'min:6']
         ]);
 

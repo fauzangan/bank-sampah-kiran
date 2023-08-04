@@ -150,7 +150,7 @@ $('#inventori-sampah').DataTable({
   },
 });
 
-$('#nasabah').DataTable({
+$('#users').DataTable({
   dom: "<'row'<'col-sm-12 col-md-2'l><'col-sm-12 col-md-4'B><'col-sm-12 col-md-6'f>>" +
     "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
   buttons: [
@@ -178,6 +178,7 @@ $('#nasabah').DataTable({
       "previous": "Sebelumnya"
     },
   },
+  lengthMenu: [5, 10, 25, 50],
 });
 
 $('#fakturs').DataTable({
@@ -226,12 +227,13 @@ $('#request-fakturs').DataTable({
       "previous": "Sebelumnya"
     },
   },
+  lengthMenu: [5, 10, 25, 50],
 });
 
 $('#jadwal-penimbangan').DataTable( {
   responsive: true,
   dom: "ltp",
-  lengthMenu: [5, 10, 12],
+  lengthMenu: [3, 5, 10, 12],
   order: [[0, 'desc']],
   language: {
     "lengthMenu": "Menampilkan _MENU_ data",

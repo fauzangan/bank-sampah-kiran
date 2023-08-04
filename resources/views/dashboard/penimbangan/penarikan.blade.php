@@ -38,9 +38,9 @@
                         <div class="card border-primary rounded-3 mb-3">
                             <h5 class="card-header" style="background-color: #4da6ff; color:white">Berat Sampah</h5>
                             <div class="card-body">
-                                <h5 style="font-size: 70px; font-weight: bold"><span id="berat">10</span> <span
+                                <h5 style="font-size: 70px; font-weight: bold"><span id="berat">0</span> <span
                                         style="font-size: 36px; vertical-align: top">Kg</span></h5>
-                                <input type="hidden" name="jumlah_kg" id="jumlah_kg" value="10">
+                                <input type="hidden" name="jumlah_kg" id="jumlah_kg" value="">
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                         <div class="card border-primary rounded-3 mb-3">
                             <h5 class="card-header" style="background-color: #ff3333; color:white">Harga Sampah</h5>
                             <div class="card-body">
-                                <h5 style="font-size: 70px; font-weight: bold"><span id="harga">0</span></h5>
+                                <h5 style="font-size: 70px; font-weight: bold"><span id="harga">Rp 0</span></h5>
                                 <input type="hidden" name="total_harga" id="total_harga" value="">
                             </div>
                         </div>

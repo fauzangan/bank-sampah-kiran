@@ -37,7 +37,7 @@
             Daftar semua Petugas Bank Sampah Kiran
         </p>
         <div class="table-responsive">
-            <table id="nasabah" class="table table-hover">
+            <table id="users" class="table table-hover">
                 <thead>
                     <tr>
                         <th>No.</th>
