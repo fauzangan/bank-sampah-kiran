@@ -1,5 +1,6 @@
 @extends('dashboard.layouts.main')
 @section('content')
+<a href="/dashboard/penimbangan" class="btn btn-danger btn-lg"> Kembali</a>
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Penyetoran</h4>
