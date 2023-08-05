@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'administrator' => \App\Http\Middleware\Administrator::class,
         'petugas' => \App\Http\Middleware\Petugas::class,
         'nasabah' => \App\Http\Middleware\Nasabah::class,
+        'isActive' => \App\Http\Middleware\CheckSuspend::class, 
     ];
 }

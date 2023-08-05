@@ -150,7 +150,7 @@ $('#inventori-sampah').DataTable({
   },
 });
 
-$('#nasabah').DataTable({
+$('#users').DataTable({
   dom: "<'row'<'col-sm-12 col-md-2'l><'col-sm-12 col-md-4'B><'col-sm-12 col-md-6'f>>" +
     "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
   buttons: [
@@ -178,6 +178,7 @@ $('#nasabah').DataTable({
       "previous": "Sebelumnya"
     },
   },
+  lengthMenu: [5, 10, 25, 50],
 });
 
 $('#fakturs').DataTable({
@@ -210,4 +211,57 @@ $('#fakturs').DataTable({
   },
   order: [[0, 'desc']]
 });
+
+$('#request-fakturs').DataTable({
+  dom: "lrtip",
+  language: {
+    "search": "Cari:",
+    "lengthMenu": "Menampilkan _MENU_ data",
+    "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+    "infoEmpty": "Menampilkan 0 dari 0 sampai 0 data",
+    "zeroRecords": "Tidak ada request penarikan saldo",
+    "paginate": {
+      "first": "Pertama",
+      "last": "Terakhir",
+      "next": "Selanjutnya",
+      "previous": "Sebelumnya"
+    },
+  },
+  lengthMenu: [5, 10, 25, 50],
+});
+
+$('#jadwal-penimbangan').DataTable( {
+  responsive: true,
+  dom: "ltp",
+  lengthMenu: [3, 5, 10, 12],
+  order: [[0, 'desc']],
+  language: {
+    "lengthMenu": "Menampilkan _MENU_ data",
+    "zeroRecords": "Jadwal Penimbangan Belum Dibuat",
+    "paginate": {
+      "first": "Pertama",
+      "last": "Terakhir",
+      "next": "Selanjutnya",
+      "previous": "Sebelumnya"
+    },
+  }
+  
+} );
+
+$('#show-jadwal-penimbangan').DataTable( {
+  responsive: true,
+  dom: "tp",
+  lengthMenu: [3, 5],
+  order: [[0, 'asc']],
+  language: {
+    "lengthMenu": "Menampilkan _MENU_ data",
+    "zeroRecords": "Tidak ada Jadwal Penimbangan",
+    "paginate": {
+      "first": "Pertama",
+      "last": "Terakhir",
+      "next": "Selanjutnya",
+      "previous": "Sebelumnya"
+    },
+  }
+} );
 

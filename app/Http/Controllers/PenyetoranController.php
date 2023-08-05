@@ -8,13 +8,16 @@ use Illuminate\Http\Request;
 class PenyetoranController extends Controller
 {
     public function index() {
+        $penyetorans = Setoran::with(['jenisSampah', 'user'])->get();
+        
         return view('dashboard.penyetoran.index', [
-            'penyetorans' => Setoran::all(),
-            'total_penyetoran' => Setoran::count(),
-            'total_kg' => Setoran::sum('jumlah_kg'),
-            'avg_kg' => number_format(Setoran::avg('jumlah_kg'), 2, ","),
-            'total_harga' => number_format(Setoran::sum('total_harga'),2,",","."),
-            'avg_harga'=> number_format(Setoran::avg('total_harga'),2,",",".")
+            'penyetorans' => $penyetorans,
+            'total_penyetoran' => $penyetorans->count(),
+            'total_kg' => $penyetorans->sum('jumlah_kg'),
+            'avg_kg' => number_format($penyetorans->avg('jumlah_kg'), 2, ","),
+            'total_harga' => number_format($penyetorans->sum('total_harga'),2,",","."),
+            'avg_harga'=> number_format($penyetorans->avg('total_harga'),2,",",".")
         ]);
     }
+
 }

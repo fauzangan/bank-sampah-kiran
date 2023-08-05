@@ -16,11 +16,11 @@
           <h3 class="rate-percentage">{{ $avg_kg }} Kg</h3>
         </div>
         <div>
-          <p class="statistics-title">Total Harga Penyetoran</p>
+          <p class="statistics-title">Total Nominal Penyetoran</p>
           <h3 class="rate-percentage">Rp {{ $total_harga }}</h3>
         </div>
         <div class="d-none d-md-block">
-          <p class="statistics-title">Rata-rata Harga Penyetoran</p>
+          <p class="statistics-title">Rata-rata Nominal Penyetoran</p>
           <h3 class="rate-percentage">Rp {{ $avg_harga }}</h3>
         </div>
       </div>
@@ -28,9 +28,9 @@
   </div>
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Histori Penyetoran</h4>
+        <h4 class="card-title">Riwayat Penyetoran</h4>
         <p class="card-description">
-            Histori penyetoran pada Bank Sampah
+            Riwayat penyetoran pada Bank Sampah
         </p>
         <div class="table-responsive">
             <table id="penyetoran" class="table table-hover">
@@ -46,7 +46,7 @@
                 <tbody>
                     @foreach($penyetorans as $penyetoran)
                     <tr>
-                        <td>{{ $penyetoran->created_at->toFormattedDateString() }} / {{ $penyetoran->created_at->toTimeString() }}</td>
+                        <td>{{ $penyetoran->created_at->translatedFormat('d F Y') }} / {{ $penyetoran->created_at->toTimeString() }}</td>
                         <td>{{ $penyetoran->jenisSampah->nama_sampah }}</td>
                         <td>{{ $penyetoran->user->nama }}</td>
                         <td>{{ $penyetoran->jumlah_kg }}</td>

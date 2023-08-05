@@ -9,8 +9,8 @@ class BukuRekening extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id_rekening'];
     protected $primaryKey = 'id_rekening';
+    protected $guarded = ['id_rekening'];
 
     public function nasabah() {
         return $this->belongsTo(User::class, 'id_nasabah');

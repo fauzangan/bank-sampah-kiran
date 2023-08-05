@@ -40,12 +40,12 @@ class JenisSampahController extends Controller
     {
         $validatedData = $request->validate([
             'nama_sampah' => ['required', 'max:255'],
-            'harga_penarikan_kg' => ['required'],
-            'harga_setoran_kg' => ['required']
+            'harga_penarikan_kg' => ['required', 'numeric'],
+            'harga_setoran_kg' => ['required', 'numeric']
         ]);
 
         JenisSampah::create($validatedData);
-        return redirect(route('jenis-sampah.index'));
+        return redirect(route('jenis-sampah.index'))->with('success', 'Jenis Sampah Berhasil Dibuat!');
     }
 
     /**
@@ -89,7 +89,7 @@ class JenisSampahController extends Controller
         ]);
 
         JenisSampah::where('id_jenis_sampah', $id)->update($validatedData);
-        return redirect(route('jenis-sampah.index'));
+        return redirect(route('jenis-sampah.index'))->with('success', 'Jenis Sampah Berhasil diedit!');
     }
 
     /**

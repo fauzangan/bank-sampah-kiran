@@ -27,7 +27,7 @@
                         <td>{{ $buku_rekening->total_transaksi_user }}</td>
                         <td>
                             @if($buku_rekening->total_transaksi_user > 0)
-                            {{ $buku_rekening->updated_at }}
+                            {{ $buku_rekening->updated_at->translatedFormat('d F Y') }}
                             @else
                             Belum melakukan transaksi
                             @endif

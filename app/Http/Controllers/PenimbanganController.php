@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BukuRekening;
-use App\Models\Faktur;
-use App\Models\JenisSampah;
-use App\Models\Penarikan;
-use App\Models\Setoran;
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Faktur;
+use App\Models\Setoran;
+use App\Models\Penarikan;
+use App\Models\JenisSampah;
+use App\Models\BukuRekening;
+use App\Models\JadwalPenimbangan;
 use Illuminate\Http\Request;
 
 class PenimbanganController extends Controller
 {
     public function index() {
-        return view('dashboard.penimbangan.index');
+        return view('dashboard.penimbangan.index',[
+            'jadwalPenimbangans' => JadwalPenimbangan::all(),
+            'minDateRange' => Carbon::now()->format('m-d-Y')
+        ]);
     }
 
     public function penarikan() {
@@ -33,13 +38,18 @@ class PenimbanganController extends Controller
         Penarikan::create($validatedData);
         PenimbanganController::updateSaldo($request->id_user, $request->total_harga);
         PenimbanganController::createFaktur($request->id_user, $request->total_harga);
-        return redirect('/dashboard/penimbangan');
+        return redirect('/dashboard/penimbangan')->with('success', 'Penarikan Berhasil Dilakukan!');
     }
 
     public function penyetoran() {
+        $res = JenisSampah::withSum('penarikan as jumlah_kg', 'jumlah_kg')->get();
+        $sub = JenisSampah::withSum('setoran as jumlah_kg', 'jumlah_kg')->get();
+        $inventory = (new InvetoriSampahController)->totalBeratSampah($res, $sub);
+
         return view('dashboard.penimbangan.penyetoran', [
             'jenis_sampahs' => JenisSampah::all(),
-            'users' => User::where('role', 2)->get()
+            'users' => User::where('role', 2)->get(),
+            'inventories' => $inventory
         ]);
     }
 
@@ -52,7 +62,7 @@ class PenimbanganController extends Controller
         ]);
 
         Setoran::create($validatedData);
-        return redirect('/dashboard/penimbangan');
+        return redirect('/dashboard/penimbangan')->with('success', 'Penyetoran Berhasil Dilakukan!');
     }
 
     public function updateSaldo($id,$saldo) {
@@ -72,5 +82,11 @@ class PenimbanganController extends Controller
             'jenis_transaksi' => 1,
             'status' => 1
         ]);
+    }
+
+    public function showUser($id) {
+        $user = User::where('id_user', $id)->first();
+
+        return response()->json($user);
     }
 }

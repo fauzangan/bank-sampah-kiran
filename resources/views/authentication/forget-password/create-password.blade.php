@@ -28,7 +28,7 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                             <div class="brand-logo">
-                                <img src="../../images/logo.svg" alt="logo">
+                                <img src="../../images/bank-sampah-kiran-logo.png" alt="logo">
                             </div>
                             <h4>Form Reset Password</h4>
                             <h6 class="fw-light">Masukan Password Baru</h6>
@@ -45,7 +45,7 @@
                                 <input type="hidden" name="token" value="{{ $token }}">
                                 <div class="input-group">
                                     <input type="email" name="email" class="form-control form-control-lg"
-                                        id="email" placeholder="Email...">
+                                        id="email" placeholder="Konfirmasi Email...">
                                 </div>
                                 <div class="input-group mt-3">
                                     <input type="password" name="password" class="form-control form-control-lg"

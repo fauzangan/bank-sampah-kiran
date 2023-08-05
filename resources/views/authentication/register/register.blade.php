@@ -30,6 +30,9 @@
                     <div class="col-lg-7 mx-auto">
                         <div class="auth-form-light text-left py-2 px-1 px-sm-2">
                             <div class="card">
+                                <div class="brand-logo d-flex justify-content-start py-0 m-0">
+                                    <img src="../../images/bank-sampah-kiran-logo.png" style="width: 30%" alt="logo">
+                                </div>
                                 <div class="card-body">
                                     <h4 class="card-title">Pendaftaran Nasabah Bank Sampah Kiran</h4>
                                     <p class="card-description">
@@ -39,36 +42,71 @@
                                         @csrf
                                         <div class="form-group">
                                             <label for="nama">Nama</label>
-                                            <input type="text" class="form-control" id="nama" name="nama"
-                                                placeholder="Nama...">
+                                            <input type="text" class="form-control @error('nama') is-invalid @enderror"
+                                                id="nama" name="nama" placeholder="Nama...">
+                                            @error('nama')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" name="email"
-                                                placeholder="Email...">
+                                            <input type="email"
+                                                class="form-control @error('email') is-invalid @enderror" id="email"
+                                                name="email" placeholder="Email...">
+                                                @error('email')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="alamat">Alamat Rumah</label>
-                                            <input type="text" class="form-control" id="alamat" name="alamat"
-                                                placeholder="Alamat Rumah...">
+                                            <input type="text"
+                                                class="form-control @error('alamat') is-invalid @enderror" id="alamat"
+                                                name="alamat" placeholder="Alamat Rumah...">
+                                                @error('alamat')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="no_telepon">Nomor Telepon</label>
-                                            <input type="text" class="form-control" id="no_telepon" name="no_telepon"
-                                                placeholder="Nomor Telepon Seluler">
+                                            <input type="text"
+                                                class="form-control @error('no_telepon') is-invalid @enderror"
+                                                id="no_telepon" name="no_telepon" placeholder="Nomor Telepon Seluler">
+                                                @error('no_telepon')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="password">Password</label>
-                                            <input type="password" class="form-control" id="password" name="password"
-                                                placeholder="Password...">
+                                            <input type="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                id="password" name="password" placeholder="Password...">
+                                                @error('password')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="password_confirmation">Confirm Password</label>
-                                            <input type="password" class="form-control" id="password_confirmation"
-                                                name="password_confirmation" placeholder="Password...">
+                                            <input type="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                id="password_confirmation" name="password_confirmation"
+                                                placeholder="Password...">
+                                                @error('password')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                         </div>
                                         <button type="submit" class="btn btn-primary me-2">Submit</button>
-                                        <button class="btn btn-light">Cancel</button>
                                     </form>
                                 </div>
                             </div>

@@ -46,7 +46,7 @@ class UserController extends Controller
         ]);
 
         User::where('id_user', auth()->user()->id_user)->update($validatedData);
-        return redirect(route('user.detail-user'));
+        return redirect(route('user.detail-user'))->with('success', 'Update Data Diri Berhasil!');
     }
 
     public function createNasabah() {
@@ -56,9 +56,9 @@ class UserController extends Controller
     public function storeNasabah(Request $request) {
         $validatedData = $request->validate([
             'nama' => ['required', 'min:3', 'max:50'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users'],
             'alamat' => ['required'],
-            'no_telepon' => ['required'],
+            'no_telepon' => ['required','numeric'],
             'password' => ['required', 'confirmed', 'min:6']
         ]);
 
@@ -79,6 +79,42 @@ class UserController extends Controller
         ]);
 
         User::where('id_user', $user->id_user)->update($validatedData);
-        return redirect(route('user.nasabah.index'));
+        return redirect()->back()->with('success', 'Update Status User Berhasil!');
+    }
+
+    public function createAdministrator() {
+        return view('dashboard.user.create-administrator');
+    }
+
+    public function storeAdministrator(Request $request) {
+        $validatedData = $request->validate([
+            'nama' => ['required', 'min:3', 'max:50'],
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => ['required', 'confirmed', 'min:6']
+        ]);
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['role'] = 1;
+
+        $user = User::create($validatedData);
+        return redirect(route('user.administrator.index'))->with('success', 'Administrator Berhasil Dibuat!');
+    }
+
+    public function createPetugas() {
+        return view('dashboard.user.create-petugas');
+    }
+
+    public function storePetugas(Request $request) {
+        $validatedData = $request->validate([
+            'nama' => ['required', 'min:3', 'max:50'],
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => ['required', 'confirmed', 'min:6']
+        ]);
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['role'] = 2;
+
+        User::create($validatedData);
+        return redirect(route('user.petugas.index'))->with('success', 'Petugas Berhasil Dibuat!');
     }
 }

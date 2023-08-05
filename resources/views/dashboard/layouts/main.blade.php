@@ -20,7 +20,6 @@
   <link rel="stylesheet" href="{{ asset('vendors/typicons/typicons.css') }}">
   <link rel="stylesheet" href="{{ asset('vendors/simple-line-icons/css/simple-line-icons.css') }}">
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   {{-- <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}"> --}}
   <!-- endinject -->
 
@@ -95,6 +94,7 @@
   <script src="{{ asset('js/template.js') }}"></script>
   <script src="{{ asset('js/settings.js') }}"></script>
   {{-- <script src="{{ asset('js/todolist.js') }}"></script> --}}
+
   <!-- endinject -->
   <!-- Custom js for this page-->
   {{-- <script src="{{ asset('js/jquery.cookie.js') }}" type="text/javascript"></script> --}}

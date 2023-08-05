@@ -2,18 +2,18 @@
 @section('content')
 <div class="row justify-content-md-center">
     <div class="col-sm-4">
-      <div class="statistics-details d-flex align-items-center justify-content-between">
-        <div>
-          <p class="statistics-title">Total Berat Sampah</p>
-          <h3 class="rate-percentage">{{ $total_berat }} Kg</h3>
+        <div class="statistics-details d-flex align-items-center justify-content-between">
+            <div>
+                <p class="statistics-title">Total Berat Sampah</p>
+                <h3 class="rate-percentage">{{ $total_berat }} Kg</h3>
+            </div>
+            <div>
+                <p class="statistics-title">Total Nilai Sampah</p>
+                <h3 class="rate-percentage">Rp {{ $total_nilai }}</h3>
+            </div>
         </div>
-        <div>
-          <p class="statistics-title">Total Nilai Sampah</p>
-          <h3 class="rate-percentage">Rp {{ $total_nilai }}</h3>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Invetori Sampah</h4>
