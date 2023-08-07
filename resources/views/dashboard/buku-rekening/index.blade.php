@@ -4,7 +4,7 @@
     <div class="card-body">
         <h4 class="card-title">Buku Rekening Nasabah</h4>
         <p class="card-description">
-            Jenis Sampah yang tersedia pada Bank Sampah Kiran
+            Daftar Buku Rekening Semua Nasabah
         </p>
         <div class="table-responsive">
             <table id="general-table" class="table table-hover">

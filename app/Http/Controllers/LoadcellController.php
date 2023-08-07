@@ -18,4 +18,8 @@ class LoadcellController extends Controller
             'weight' => $request->weight
         ]);
     }
+
+    public function postData(Request $request) {
+        return dd($request);
+    }
 }

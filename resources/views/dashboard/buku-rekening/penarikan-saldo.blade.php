@@ -27,7 +27,7 @@
     <div class="card-body">
         <h4 class="card-title">Request Penarikan Saldo</h4>
         <p class="card-description">
-            Request Penarikan Saldo Nasabah
+            Daftar Pending Request Penarikan Saldo Nasabah
         </p>
         <div class="table-responsive">
             <table id="request-fakturs" class="table table-hover">

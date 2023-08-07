@@ -31,8 +31,10 @@
                             @endif
                         </td>
                         <td>
-                            @if($faktur->status != 0)
-                            <div class="badge badge-opacity-success">Selesai</div>
+                            @if($faktur->status == 1)
+                            <div class="badge badge-opacity-success">Berhasil</div>
+                            @elseif($faktur->status == 2)
+                            <div class="badge badge-opacity-danger" style="background-color: #ffcccc">Ditolak</div>
                             @else
                             <div class="badge badge-opacity-warning">Pending</div>
                             @endif
