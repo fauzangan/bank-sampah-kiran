@@ -39,9 +39,9 @@ class NasabahDashboardController extends Controller
             'chartJenisSampah' => $chartJenisSampah->build($rekapanJenisSampah, $namaJenisSampah),
             'totalHargaPenarikan' => $totalHargaPenarikan,
             'totalTransaksi' => NasabahDashboardController::totalTransaksi($user),
-            'minPenimbangan' => NasabahDashboardController::minPenimbangan($user),
-            'maxPenimbangan' => NasabahDashboardController::maxPenimbangan($user),
-            'avgPenimbangan' => NasabahDashboardController::avgPenimbangan($user),
+            'minPenimbangan' => number_format(NasabahDashboardController::minPenimbangan($user), 2, ','),
+            'maxPenimbangan' => number_format(NasabahDashboardController::maxPenimbangan($user), 2, ','),
+            'avgPenimbangan' => number_format(NasabahDashboardController::avgPenimbangan($user), 2, ','),
             'jadwalPenimbangans' => JadwalPenimbangan::where('status', '=', 0)->get()
         ]);
     }
