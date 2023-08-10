@@ -25,7 +25,8 @@ $('#general-table').DataTable({
       "next": "Selanjutnya",
       "previous": "Sebelumnya"
     },
-  }
+  },
+  lengthMenu: [5, 10, 25, 50],
 });
 
 $('#jenis-sampah').DataTable({
@@ -37,12 +38,18 @@ $('#jenis-sampah').DataTable({
       title: 'Daftar Jenis Sampah',
       text: '<i class="mdi mdi-file-excel"></i> Excel',
       className: 'btn btn-success rounded-pill',
+      exportOptions: {
+        columns: [0, 1, 2, 3],
+      },
     },
     {
       extend: 'pdf',
       title: 'Daftar Jenis Sampah',
       text: '<i class="mdi mdi-file-pdf"></i> PDF',
       className: 'btn btn-danger rounded-pill',
+      exportOptions: {
+        columns: [0, 1, 2, 3],
+      },
     },
   ],
   language: {
@@ -209,7 +216,8 @@ $('#fakturs').DataTable({
       "previous": "Sebelumnya"
     },
   },
-  order: [[0, 'desc']]
+  order: [[0, 'desc']],
+  lengthMenu: [5, 10, 25, 50],
 });
 
 $('#request-fakturs').DataTable({
@@ -230,7 +238,7 @@ $('#request-fakturs').DataTable({
   lengthMenu: [5, 10, 25, 50],
 });
 
-$('#jadwal-penimbangan').DataTable( {
+$('#jadwal-penimbangan').DataTable({
   responsive: true,
   dom: "ltp",
   lengthMenu: [3, 5, 10, 12],
@@ -245,10 +253,10 @@ $('#jadwal-penimbangan').DataTable( {
       "previous": "Sebelumnya"
     },
   }
-  
-} );
 
-$('#show-jadwal-penimbangan').DataTable( {
+});
+
+$('#show-jadwal-penimbangan').DataTable({
   responsive: true,
   dom: "tp",
   lengthMenu: [3, 5],
@@ -263,5 +271,5 @@ $('#show-jadwal-penimbangan').DataTable( {
       "previous": "Sebelumnya"
     },
   }
-} );
+});
 

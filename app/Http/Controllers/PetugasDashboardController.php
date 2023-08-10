@@ -37,9 +37,9 @@ class PetugasDashboardController extends Controller
             'chartJenisSampah' => $chartJenisSampah->build($rekapanJenisSampah, $namaJenisSampah),
             'totalKgPenyetoran' => $totalKgPenyetoran,
             'totalTransaksi' => PetugasDashboardController::totalTransaksi($user),
-            'minPenimbangan' => PetugasDashboardController::minPenimbangan($user),
-            'maxPenimbangan' => PetugasDashboardController::maxPenimbangan($user),
-            'avgPenimbangan' => PetugasDashboardController::avgPenimbangan($user)
+            'minPenimbangan' => number_format(PetugasDashboardController::minPenimbangan($user), 2, ','),
+            'maxPenimbangan' => number_format(PetugasDashboardController::maxPenimbangan($user), 2, ','),
+            'avgPenimbangan' => number_format(PetugasDashboardController::avgPenimbangan($user), 2, ',')
         ]);
     }
 

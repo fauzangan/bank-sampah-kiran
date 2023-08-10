@@ -19,6 +19,7 @@ use App\Http\Controllers\PetugasDashboardController;
 use App\Http\Controllers\PetugasMenuController;
 use App\Http\Controllers\UserController;
 use App\Models\JadwalPenimbangan;
+use App\Models\Loadcell;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,7 +38,8 @@ Route::get('/', function() {
 });
 
 Route::get('/read-loadcell', [LoadcellController::class, 'readWeight']);
-Route::get('/simpan/{weight}', [LoadcellController::class, 'getLoadcellValue']);
+Route::get('/ASqEtA1WR2yGyEjQ59jTevRMVkZzkYH1RL37XbnXCviNhxZmEeZ1cHv0vDFLkVu3C/{weight}', [LoadcellController::class, 'getLoadcellValue']);
+Route::post('/test-post/{berat}', [LoadcellController::class, 'postData']);
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthenticationController::class, 'index'])->name('login');
@@ -51,8 +53,6 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-
-    
     Route::middleware('administrator')->group(function () {
         Route::get('/dashboard/admin', [AdminDashboardController::class, 'adminDashboard'])->name('dashboard.admin');
         Route::resource('/dashboard/jenis-sampah', JenisSampahController::class);

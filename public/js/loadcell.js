@@ -20,7 +20,7 @@ $(document).ready(function () {
                 $('#harga').text(rupiah(totalHarga));
             }
         });
-    }, 3000);
+    }, 1000);
 });
 
 const rupiah = (number) => {
