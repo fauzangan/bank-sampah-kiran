@@ -5,8 +5,15 @@ $(document).ready(function () {
             type: 'get',
             success: function (result) {
                 let totalHarga;
-                $('#berat').text(result['weight']);
-                $('#jumlah_kg').val(result['weight']);
+
+                if (result['weight'] >= 0) {
+                    $('#berat').text(result['weight']);
+                    $('#jumlah_kg').val(result['weight']);
+                } else {
+                    $('#berat').text(0);
+                    $('#jumlah_kg').val(0);
+                }
+
                 let kilogram = $('#jumlah_kg').attr('value');
                 let harga = $('#select-jenis-sampah').find(':selected').data('harga');
 
