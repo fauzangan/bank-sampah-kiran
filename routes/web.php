@@ -106,3 +106,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/ubah-password', [ChangePasswordController::class, 'index'])->name('user.change-password');
     Route::post('/dashboard/ubah-password', [ChangePasswordController::class, 'changePassword'])->name('user.change-password.store');
 });
+
+Route::get('/', function () {
+    return view('landing');
+});
