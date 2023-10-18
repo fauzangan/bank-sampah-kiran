@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 @section('content')
 <div class="row justify-content-md-center">
-    <div class="col-sm-8">
+    <div class="col-sm-12">
         <div class="statistics-details d-flex align-items-center justify-content-between">
             <div>
                 <p class="statistics-title">Total Transansi Penimbangan</p>

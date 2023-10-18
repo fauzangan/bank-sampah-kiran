@@ -36,8 +36,8 @@
 
             <div class="form-group">
                 <label for="select-jenis-sampah">Jenis Sampah</label>
-                <div class="row">
-                    <div class="col-11">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-10">
                         <select id="select-jenis-sampah" class="form-select form-select-sm"
                             placeholder="Pilih Jenis Sampah..." name="id_jenis_sampah">
                             @foreach ($jenis_sampahs as $jenis_sampah)
@@ -47,7 +47,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-1">
+                    <div class="col-md-auto ps- ms-9">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             Inventory
@@ -58,8 +58,8 @@
             </div>
             <div class="form-group">
                 <label for="">Petugas Yayasan</label>
-                <div class="row">
-                    <div class="col-11">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-10">
                         <select id="select-user" class="form-select form-select-sm" placeholder="Pilih Nasabah..."
                             name="id_user">
                             @foreach ($users as $user)
@@ -67,7 +67,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-1">
+                    <div class="col-md-auto ms-9">
                         <a href="javascript:void(0)" id="show-user" data-id=1 class="btn btn-info">Detail</a>
                     </div>
                 </div>
@@ -147,6 +147,50 @@
     </div>
 </div>
 {{-- Inventory Modal --}}
+
+<!-- responsive kolom jenis sampah dan kolom pilih nasabah-->
+<script>
+    function jenisResponsive(elementId, defaultWidth, maxWidth) {
+        const element = document.getElementById(elementId);
+
+        function adjustWidth() {
+            const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+            const newWidth = Math.min(maxWidth, screenWidth);
+
+            element.style.width = (newWidth / maxWidth) * 100 + '%';
+        }
+
+        // Initial adjustment
+        adjustWidth();
+
+        // Adjust width when the window is resized
+        window.addEventListener('resize', adjustWidth);
+        }
+
+        // Call the function to make the element with ID "pilih" responsive
+        jenisResponsive('select-jenis-sampah', 1000, 1200);
+
+    function userResponsive(elementId, defaultWidth, maxWidth) {
+        const element = document.getElementById(elementId);
+
+        function adjustWidth() {
+            const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+            const newWidth = Math.min(maxWidth, screenWidth);
+
+            element.style.width = (newWidth / maxWidth) * 100 + '%';
+        }
+
+        // Initial adjustment
+        adjustWidth();
+
+        // Adjust width when the window is resized
+        window.addEventListener('resize', adjustWidth);
+        }
+
+        // Call the function to make the element with ID "pilih" responsive
+        userResponsive('select-user', 1000, 1200);
+
+</script>
 
 <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>

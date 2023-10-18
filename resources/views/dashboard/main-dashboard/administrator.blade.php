@@ -45,14 +45,14 @@
               <div class="col-md-auto">
                 <h4>Saldo: </h4>
               </div>
-              <div class="col-4">
+              <div class="col-4 col-sm-auto">
                 <h2 class="fw-bold">Rp {{ number_format($reportSaldo,2,",",".") }}</h2>
               </div>
               <div class="col-md-auto">
                 <h4>Keuntungan: </h4>
               </div>
               <div class="col-4">
-                <h2 class="fw-bold text-success">+Rp {{ number_format($reportKeuntungan,2,",",".") }}</h2>
+                <h2 class="fw-bold text-success col-sm-auto" id="keuntungan">+Rp {{ number_format($reportKeuntungan,2,",",".") }}</h2>
               </div>
               <div class="d-sm-flex align-items-center justify-content-between">
                 <div class="d-sm-flex align-items-center mt-1 justify-content-between">
@@ -106,6 +106,29 @@
     </div>
   </div>
 </div>
+
+<!-- responsif text keuntungan -->
+<script>
+  function makeTextWidthResponsive(elementId, minWidth, maxWidth) {
+  const element = document.getElementById(elementId);
+
+  function adjustWidth() {
+    const textContentWidth = element.scrollWidth;
+    const newWidth = Math.min(maxWidth, Math.max(minWidth, textContentWidth));
+
+    element.style.width = newWidth + 'px';
+  }
+
+  // Initial adjustment
+  adjustWidth();
+
+  // Adjust width when the window is resized
+  window.addEventListener('resize', adjustWidth);
+}
+
+// Call the function to make the text width with ID "keuntungan" responsive
+makeTextWidthResponsive('keuntungan', 200, 600);
+</script>
 
 <script src="{{ $chartPenimbangan->cdn() }}"></script>
 <script src="{{ $chartPenjualan->cdn() }}"></script>

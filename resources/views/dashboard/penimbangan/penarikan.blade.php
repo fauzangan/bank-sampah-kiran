@@ -106,6 +106,50 @@
     </div>
 </div>
 
+<!-- responsive kolom jenis sampah dan kolom pilih nasabah-->
+<script>
+    function jenisResponsive(elementId, defaultWidth, maxWidth) {
+        const element = document.getElementById(elementId);
+
+        function adjustWidth() {
+            const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+            const newWidth = Math.min(maxWidth, screenWidth);
+
+            element.style.width = (newWidth / maxWidth) * 100 + '%';
+        }
+
+        // Initial adjustment
+        adjustWidth();
+
+        // Adjust width when the window is resized
+        window.addEventListener('resize', adjustWidth);
+        }
+
+        // Call the function to make the element with ID "pilih" responsive
+        jenisResponsive('select-jenis-sampah', 1000, 1200);
+
+    function userResponsive(elementId, defaultWidth, maxWidth) {
+        const element = document.getElementById(elementId);
+
+        function adjustWidth() {
+            const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+            const newWidth = Math.min(maxWidth, screenWidth);
+
+            element.style.width = (newWidth / maxWidth) * 100 + '%';
+        }
+
+        // Initial adjustment
+        adjustWidth();
+
+        // Adjust width when the window is resized
+        window.addEventListener('resize', adjustWidth);
+        }
+
+        // Call the function to make the element with ID "pilih" responsive
+        userResponsive('select-user', 1000, 1200);
+
+</script>
+
 <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="{{ asset('js/penarikan.js') }}"></script>
