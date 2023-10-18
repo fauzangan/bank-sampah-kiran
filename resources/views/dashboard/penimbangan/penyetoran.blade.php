@@ -36,8 +36,8 @@
 
             <div class="form-group">
                 <label for="select-jenis-sampah">Jenis Sampah</label>
-                <div class="row d-flex justify-content-between">
-                    <div class="col-10">
+                <div class="row ">
+                    <div class="col">
                         <select id="select-jenis-sampah" class="form-select form-select-sm"
                             placeholder="Pilih Jenis Sampah..." name="id_jenis_sampah">
                             @foreach ($jenis_sampahs as $jenis_sampah)
@@ -58,8 +58,8 @@
             </div>
             <div class="form-group">
                 <label for="">Petugas Yayasan</label>
-                <div class="row d-flex justify-content-between">
-                    <div class="col-10">
+                <div class="row ">
+                    <div class="col">
                         <select id="select-user" class="form-select form-select-sm" placeholder="Pilih Nasabah..."
                             name="id_user">
                             @foreach ($users as $user)
