@@ -33,7 +33,7 @@ class NasabahMenuController extends Controller
         $rekening = BukuRekening::where('id_nasabah', $user->id_user)->first(['id_rekening', 'saldo']);
         
         $validatedData = $request->validate([
-            'nominal' => ['required', 'numeric', 'min:10000']
+            'nominal' => ['required', 'numeric', 'min:10000', "max:$rekening->saldo"]
         ]);
         $validatedData['id_rekening'] = $rekening->id_rekening;
         $validatedData['jenis_transaksi'] = 0;

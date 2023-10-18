@@ -38,7 +38,8 @@ Route::get('/', function() {
 });
 
 Route::get('/read-loadcell', [LoadcellController::class, 'readWeight']);
-Route::get('/ASqEtA1WR2yGyEjQ59jTevRMVkZzkYH1RL37XbnXCviNhxZmEeZ1cHv0vDFLkVu3C/{weight}', [LoadcellController::class, 'getLoadcellValue']);
+// Route::get('/ASqEtA1WR2yGyEjQ59jTevRMVkZzkYH1RL37XbnXCviNhxZmEeZ1cHv0vDFLkVu3C/{weight}', [LoadcellController::class, 'getLoadcellValue']);
+Route::get('/simpan/{weight}', [LoadcellController::class, 'getLoadcellValue']);
 Route::post('/test-post/{berat}', [LoadcellController::class, 'postData']);
 
 Route::middleware('guest')->group(function () {

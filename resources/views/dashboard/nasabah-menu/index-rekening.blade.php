@@ -49,8 +49,7 @@
             <div class="form-group row">
                 <label for="saldo" class="col-md-auto">Nominal Penarikan :</label>
                 <div class="col-sm-8">
-                    <input type="number" name="nominal" class="form-control" id="saldo" min=10000 max={{
-                        $buku_rekening->saldo }} placeholder="Masukan nominal yang ingin ditarik tanpa menulis Rupiah">
+                    <input type="number" name="nominal" class="form-control" id="saldo" min=10000 max={{$buku_rekening->saldo }} placeholder="Masukan nominal yang ingin ditarik tanpa menulis Rupiah">
                 </div>
                 <div class="col-sm-2">
                     <button class="btn btn-info" type="submit">Request Penarikan</button>

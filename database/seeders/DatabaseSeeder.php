@@ -244,42 +244,42 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        // for($i = 1; $i <= 12; $i++){
-        //     for($j = 1; $j <= 10; $j++){
-        //         Penarikan::create([
-        //             'id_jenis_sampah' => fake()->numberBetween(1, 5),
-        //             'id_user' => fake()->numberBetween(5,19),
-        //             'jumlah_kg' => fake()->numberBetween(1,10),
-        //             'total_harga' => fake()->numberBetween(5000, 20000),
-        //             'created_at' => Carbon::create(2023, $i, 15),
-        //             'updated_at' => Carbon::create(2023, $i, 15)
-        //         ]);
+        for($i = 1; $i <= 12; $i++){
+            for($j = 1; $j <= 10; $j++){
+                Penarikan::create([
+                    'id_jenis_sampah' => fake()->numberBetween(1, 5),
+                    'id_user' => fake()->numberBetween(5,19),
+                    'jumlah_kg' => fake()->numberBetween(1,10),
+                    'total_harga' => fake()->numberBetween(5000, 20000),
+                    'created_at' => Carbon::create(2023, $i, 15),
+                    'updated_at' => Carbon::create(2023, $i, 15)
+                ]);
     
-        //         Setoran::create([
-        //             'id_jenis_sampah' => fake()->numberBetween(1, 5),
-        //             'id_user' => fake()->numberBetween(3,4),
-        //             'jumlah_kg' => fake()->numberBetween(1,8),
-        //             'total_harga' => fake()->numberBetween(10000, 30000),
-        //             'created_at' => Carbon::create(2023, $i, 15),
-        //             'updated_at' => Carbon::create(2023, $i, 15)
-        //         ]);
-        //     }
-        // }
+                Setoran::create([
+                    'id_jenis_sampah' => fake()->numberBetween(1, 5),
+                    'id_user' => fake()->numberBetween(3,4),
+                    'jumlah_kg' => fake()->numberBetween(1,8),
+                    'total_harga' => fake()->numberBetween(10000, 30000),
+                    'created_at' => Carbon::create(2023, $i, 15),
+                    'updated_at' => Carbon::create(2023, $i, 15)
+                ]);
+            }
+        }
 
-        // for($i = 1; $i <= 50; $i++){
-        //     Faktur::create([
-        //         'id_rekening' => fake()->numberBetween(1, 15),
-        //         'nominal' => fake()->numberBetween(15000, 20000),
-        //         'jenis_transaksi' => 1,
-        //         'status' => 1
-        //     ]);
+        for($i = 1; $i <= 50; $i++){
+            Faktur::create([
+                'id_rekening' => fake()->numberBetween(1, 15),
+                'nominal' => fake()->numberBetween(15000, 20000),
+                'jenis_transaksi' => 1,
+                'status' => 1
+            ]);
 
-        //     Faktur::create([
-        //         'id_rekening' => fake()->numberBetween(1, 15),
-        //         'nominal' => fake()->numberBetween(15000, 20000),
-        //         'jenis_transaksi' => 0,
-        //         'status' => fake()->numberBetween(0, 2)
-        //     ]);
-        // }
+            Faktur::create([
+                'id_rekening' => fake()->numberBetween(1, 15),
+                'nominal' => fake()->numberBetween(15000, 20000),
+                'jenis_transaksi' => 0,
+                'status' => fake()->numberBetween(0, 2)
+            ]);
+        }
     }
 }
