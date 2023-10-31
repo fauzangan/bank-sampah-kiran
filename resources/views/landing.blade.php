@@ -19,7 +19,7 @@
         <div class="container justify-center w-full">
             <div class="flex items-center justify-between relative">
                 <div class="justify-start">
-                    <a href="#home" class="text-xl font-semibold text-md text-primary font-tektur block sm:px-5 py-3 ">KIRAN</a>
+                    <a href="#home" class="text-xl font-semibold text-md text-primary font-tektur block px-5 py-3 ">KIRAN</a>
                 </div>
                 <div class="flex items-center px-1 -mr-1.5">
                     <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden">
@@ -70,7 +70,7 @@
                 <div class="flex flex-wrap">
                     <div class="w-full self-center mt-20">
                         <h1 class="pt-5 text-white text-3xl font-sans font-bold md:text-4xl text-center mb-4">Tentang Kami</h1>
-                        <p class="text-lg text-white font-thin mb-2 text-justify">Bank sampah kiran didirikan pada tanggal 16 Oktober 2021. Pada masa awal pendirian Bank Sampah Kiran, tercatat 30 nasabah yang meliputi warga Komplek Duta Bintaro pada kluster Kintamani dan Jimbaran. Pick-up perdana bank sampah kiran terjadi pada tanggal 20 Oktober 2022. Hingga saat ini, tercatat ada 82 nasabah yang terdaftar di bank sampah kiran.  </p>
+                        <p class="text-md lg:text-lg px-4 text-white font-thin mb-2 text-justify">Bank sampah kiran didirikan pada tanggal 16 Oktober 2021. Pada masa awal pendirian Bank Sampah Kiran, tercatat 30 nasabah yang meliputi warga Komplek Duta Bintaro pada kluster Kintamani dan Jimbaran. Pick-up perdana bank sampah kiran terjadi pada tanggal 20 Oktober 2022. Hingga saat ini, tercatat ada 82 nasabah yang terdaftar di bank sampah kiran.  </p>
                     </div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
             <div class="flex flex-wrap">
                 <div class="w-full px-1 mb-8 self-center">
                     <h1 class="text-2xl text-center uppercase text-white font-bold mt-4 mb-2">KONTAK</h1>
-                    <h2 class="font-semibold text-white text-xl">Hubungi kami melalui :</h2>
+                    <h2 class="font-semibold text-white text-xl text-center">Hubungi kami melalui :</h2>
                         <div class="container flex flex-wrap my-15 justify-between items-center py-5">
                 <!-- card -->
                             <div class="lg:w-1/4 w-full lg:pr-4 py-3">
