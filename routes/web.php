@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function() {
-    return redirect()->route('login');
+    return redirect()->route('test');
 });
 
 Route::get('/read-loadcell', [LoadcellController::class, 'readWeight']);
@@ -108,6 +108,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/ubah-password', [ChangePasswordController::class, 'changePassword'])->name('user.change-password.store');
 });
 
-Route::get('/', function () {
-    return view('landing');
-});
+// Route::get('/', function () {
+//     return view('landing');
+// });
