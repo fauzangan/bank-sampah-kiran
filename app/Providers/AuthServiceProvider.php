@@ -29,15 +29,15 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('administrator', function(User $user) {
-            return $user->role === 1;
+            return $user->role == 1;
         });
 
         Gate::define('petugas', function(User $user) {
-            return $user->role === 2;
+            return $user->role == 2;
         });
 
         Gate::define('nasabah', function(User $user) {
-            return $user->role === 3;
+            return $user->role == 3;
         });
     }
 }
