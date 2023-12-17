@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        ##### Mandatory Seed #####
+
         Loadcell::create([
             'weight' => 0
         ]);
@@ -37,7 +39,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'role' => 1,
             'nama' => 'Fauzan Zaman',
-            'email' => 'test1@gmail.com',
+            'email' => 'admin1@gmail.com',
             'password' => bcrypt('password'),
             'alamat' => '-',
             'no_telepon' => '081291289944'
@@ -45,8 +47,8 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'role' => 1,
-            'nama' => 'Mita Ayu Lestari',
-            'email' => 'test2@gmail.com',
+            'nama' => 'Adien Akbariza',
+            'email' => 'admin2@gmail.com',
             'password' => bcrypt('password'),
             'alamat' => '-',
             'no_telepon' => '081291289933'
@@ -240,19 +242,22 @@ class DatabaseSeeder extends Seeder
         for($i = 5; $i <= 19; $i++){
             BukuRekening::create([
                 'id_nasabah' => $i,
-                'saldo' => fake()->numberBetween(5000, 50000)
+                'saldo' => 0
             ]);
         }
 
+        ##### END Mandatory Seed #####
+
         // for($i = 1; $i <= 12; $i++){
         //     for($j = 1; $j <= 10; $j++){
+        //         $tanggal = fake()->numberBetween(1,28);
         //         Penarikan::create([
         //             'id_jenis_sampah' => fake()->numberBetween(1, 5),
         //             'id_user' => fake()->numberBetween(5,19),
         //             'jumlah_kg' => fake()->numberBetween(1,10),
         //             'total_harga' => fake()->numberBetween(5000, 20000),
-        //             'created_at' => Carbon::create(2023, $i, 15),
-        //             'updated_at' => Carbon::create(2023, $i, 15)
+        //             'created_at' => Carbon::create(2023, $i, $tanggal),
+        //             'updated_at' => Carbon::create(2023, $i, $tanggal)
         //         ]);
     
         //         Setoran::create([
@@ -260,8 +265,8 @@ class DatabaseSeeder extends Seeder
         //             'id_user' => fake()->numberBetween(3,4),
         //             'jumlah_kg' => fake()->numberBetween(1,8),
         //             'total_harga' => fake()->numberBetween(10000, 30000),
-        //             'created_at' => Carbon::create(2023, $i, 15),
-        //             'updated_at' => Carbon::create(2023, $i, 15)
+        //             'created_at' => Carbon::create(2023, $i, $tanggal),
+        //             'updated_at' => Carbon::create(2023, $i, $tanggal)
         //         ]);
         //     }
         // }

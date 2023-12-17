@@ -113,9 +113,9 @@ class AdminDashboardController extends Controller
 
     public function sumReportSaldo()
     {
-        $keuntungan = AdminDashboardController::sumReportKeuntungan();
+        // $keuntungan = AdminDashboardController::sumReportKeuntungan();
         $saldo = BukuRekening::sum('saldo');
 
-        return $saldo + $keuntungan;
+        return $saldo;
     }
 }

@@ -22,7 +22,7 @@ class DashboardTest extends TestCase
             'email' => $user->email,
             'password' => 'password',
         ]);
-        
+
         $response->assertRedirect('/dashboard/admin');
     }
 }

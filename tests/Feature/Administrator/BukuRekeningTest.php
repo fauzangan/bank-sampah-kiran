@@ -18,25 +18,15 @@ class BukuRekeningTest extends TestCase
     {
         $user = User::where('role', 1)->first();
 
-        $response = $this->from('/login')->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/dashboard/buku-rekening');
-        $response->assertStatus(200);
+        $response = $this->actingAs($user)->get('/dashboard/buku-rekening');
+        $response->assertOk();
     }
 
     public function test_administrator_can_see_detail_buku_rekening_nasabah()
     {
         $user = User::where('role', 1)->first();
 
-        $response = $this->from('/login')->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/dashboard/buku-rekening/1');
+        $response = $this->actingAs($user)->get('/dashboard/buku-rekening/1');
         $response->assertStatus(200);
     }
 }

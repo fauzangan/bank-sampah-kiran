@@ -43,13 +43,13 @@
             </div>
             <div class="row align-items-center">
               <div class="col-md-auto">
-                <h4>Saldo: </h4>
+                <h5>Saldo Nasabah: </h5>
               </div>
               <div class="col-4 col-sm-auto">
                 <h2 class="fw-bold">Rp {{ number_format($reportSaldo,2,",",".") }}</h2>
               </div>
               <div class="col-md-auto">
-                <h4>Keuntungan: </h4>
+                <h5>Laba Bersih: </h5>
               </div>
               <div class="col-4">
                 <h2 class="fw-bold text-success col-sm-auto" id="keuntungan">+Rp {{ number_format($reportKeuntungan,2,",",".") }}</h2>

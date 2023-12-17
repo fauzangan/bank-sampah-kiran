@@ -1,5 +1,22 @@
 @extends('dashboard.layouts.main')
 @section('content')
+
+{{-- Alert --}}
+@if(session()->has('errors'))
+@foreach ($errors->all() as $error)
+<div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+    <svg class="bi flex-shrink-0" width="24" height="24" role="img" aria-label="Success:">
+        <use xlink:href="#exclamation-triangle-fill" />
+    </svg>
+    <div class="mx-2">
+        {{ $error }}
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endforeach
+@endif
+{{-- Alert --}}
+
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Penyetoran</h4>
